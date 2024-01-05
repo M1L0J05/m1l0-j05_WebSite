@@ -1,6 +1,8 @@
 import reflex as rx
 
-@rx.page(route='/', title='miloJosWeb')
+from milo_jos.templates import template
+
+@template(route='/', title='miloJosWeb')
 def index() -> rx.Component:
     return rx.fragment(
         rx.color_mode_button(rx.color_mode_icon(), float="right"),

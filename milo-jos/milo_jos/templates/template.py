@@ -2,6 +2,8 @@ from typing import Callable
 
 import reflex as rx
 
+from  milo_jos.styles import styles
+
 # Etiquetas metadatos para la aplicacion
 default_meta = [
     {
@@ -57,10 +59,23 @@ def template(
         ) 
         # Renderizado de la plantilla junto con el contenido de la página.
         def templated_page() -> rx.Component:
-            return rx.hstack(
-                rx.heading("Plantilla - Header", font_size="2em"),
-                page_content(),
-                rx.heading("Plantilla - Footer", font_size="2em"),
+            return rx.box(
+                rx.hstack(
+                    rx.box(
+                        "sidebar", 
+                        border='1px',
+                    ),
+                    rx.center(
+                        rx.box(
+                            page_content(),
+                            width=styles.MAX_WIDTH,
+                            margin=styles.Size.ZERO.value,
+                            border='1px',
+                        ),
+                        width='100%',
+                    ),
+                ),
+                margin=styles.Size.DEFAULT.value,
             )
 
         return templated_page

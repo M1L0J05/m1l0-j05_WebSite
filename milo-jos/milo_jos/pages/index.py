@@ -2,27 +2,37 @@ import reflex as rx
 
 from milo_jos.templates import template
 
+
 @template(route='/', title='miloJosWeb')
 def index() -> rx.Component:
     return rx.fragment(
-        rx.color_mode_button(rx.color_mode_icon(), float="right"),
         rx.vstack(
-            rx.heading("Welcome to MiloJos_Web!", font_size="2em"),
-            rx.box("Get started by editing ",),
+            rx.heading(
+                "Welcome to MiloJos_Web!", 
+                color='#335DB8',
+            ),
+            rx.box(
+                "Get started by editing ",
+                color='#335DB8',
+            ),
+            rx.box(
+                "This is a test text...",
+                color='#DADADE',
+            ),
+            rx.box(
+                "This is a test text...",
+                color='grey',
+            ),
             rx.link(
                 "Check out our docs!",
-                border="0.1em solid",
+                color='#CB91E5',
+                border="0.1em solid #335DB8",
                 padding="0.5em",
                 border_radius="0.5em",
                 _hover={
-                    "color": rx.color_mode_cond(
-                        light="rgb(107,99,246)",
-                        dark="rgb(179, 175, 255)",
-                    )
+                    "color": "#DADADE",
+                    "border" : "0.1em solid #4EA0ED",
                 },
             ),
-            spacing="1.5em",
-            font_size="2em",
-            padding_top="10%",
         ),
     )

@@ -3,6 +3,7 @@ from typing import Callable
 import reflex as rx
 
 from  milo_jos.styles import styles
+from milo_jos.components import navbar
 
 # Etiquetas metadatos para la aplicacion
 default_meta = [
@@ -59,23 +60,13 @@ def template(
         ) 
         # Renderizado de la plantilla junto con el contenido de la página.
         def templated_page() -> rx.Component:
-            return rx.box(
-                rx.hstack(
-                    rx.box(
-                        "sidebar", 
-                        border='1px',
-                    ),
-                    rx.center(
-                        rx.box(
-                            page_content(),
-                            width=styles.MAX_WIDTH,
-                            margin=styles.Size.ZERO.value,
-                            border='1px',
-                        ),
-                        width='100%',
-                    ),
+            return rx.vstack(
+                navbar(),
+                rx.center(
+                    page_content(),
+                    margin_top='4em !important',
+                    width='100% !important',
                 ),
-                margin=styles.Size.DEFAULT.value,
             )
 
         return templated_page

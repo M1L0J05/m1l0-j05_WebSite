@@ -9,10 +9,6 @@ class Colors(Enum):
     CONTENT = "#DADADE" # -> Mischka
     ACCENT = "#CB91E5" # -> Lavander
 
-class TextColors(Enum):
-    DEFAULT = Colors.SECONDARY.value
-    #HEADER = "#F1F2F4"
-    #FOOTER = "#A3ABB2"
 
 # Color Palette
     #0A1637 -> Black Pearl

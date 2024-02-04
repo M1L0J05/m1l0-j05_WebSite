@@ -64,7 +64,7 @@ def template(
                 navbar(),
                 rx.center(
                     page_content(),
-                    margin_top='4em !important',
+                    margin_top='75px !important',
                     width='100% !important',
                 ),
             )

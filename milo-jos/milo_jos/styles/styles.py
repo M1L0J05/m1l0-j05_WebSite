@@ -3,7 +3,7 @@ from enum import Enum
 import reflex as rx
 
 from milo_jos.styles.fonts import Fonts, FontWeight
-from milo_jos.styles.colors import Colors, TextColors
+from milo_jos.styles.colors import Colors
 
 # Constants
 MIN_WIDTH = '15em !important' # 240px
@@ -18,21 +18,40 @@ STYLE_SHEETS = [
 
 # Sizes
 class Size(Enum):
-    ZERO = '0px !important'
-    VERY_SMALL = '0.3em'
-    SMALL = '0.5em'
-    MEDIUM = '0.8em'
-    DEFAULT = '1em'
-    LARGE = '1.5em'
-    BIG = '2em'
-    VERY_BIG = '4em'
+        ZERO = '0px !important'
+        VERY_SMALL = '0.3em !important'
+        SMALL = '0.5em !important'
+        MEDIUM = '0.8em !important'
+        DEFAULT = '1em !important'
+        LARGE = '1.5em !important'
+        BIG = '2em !important'
+        VERY_BIG = '3em !important'
 
 
 # Base styles.
 BASE_STYLES = {
-    'font_family' : Fonts.DEFAULT.value,
-    'font_weight' : FontWeight.DEFAULT.value,
-    'color' : TextColors.DEFAULT.value,
-    'background_color' : 'black',
-    'background_image' :'circuit-board.svg', 
+        'font_family' : Fonts.DEFAULT.value,
+        'font_weight' : FontWeight.DEFAULT.value,
+        'color' : Colors.PRIMARY.value,
+        'background_color' : 'black',
+        'background_image' :'circuit-board.svg', 
+        rx.Link : {
+                'text_decoration' : 'None',
+                '_hover' : {
+                        'text_decoration' : 'None',
+                        'color' : Colors.CONTENT.value,
+                }
+        }
+}
+
+
+CUSTOM_BOX_STYLES = {
+        'color' : Colors.ACCENT.value,
+        'border' : '1px  solid #335DB8',
+        'border_radius' : Size.SMALL.value,
+        '_hover' : {
+                'color': Colors.CONTENT.value,
+                'border' : '0.1em solid #4EA0ED',
+                'cursor' : 'pointer',
+        },
 }

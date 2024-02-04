@@ -25,41 +25,97 @@ def navbar():
         ),
         rx.spacer(),
         rx.hstack(
-            rx.tooltip(
-                rx.square(
-                    rx.icon(
-                        tag='hamburger',
-                        color='#CB91E5',
-                        style=CUSTOM_BOX_STYLES,
-                        width=Size.VERY_BIG.value,
-                        height=Size.VERY_BIG.value,
-                        padding=Size.SMALL.value,
+            rx.menu(
+                rx.menu_button(
+                    rx.square(
+                        rx.icon(
+                            tag='hamburger',
+                            color='#CB91E5',
+                            style=CUSTOM_BOX_STYLES,
+                            width=Size.VERY_BIG.value,
+                            height=Size.VERY_BIG.value,
+                            padding=Size.SMALL.value,
+                        ),
+                        display=['flex', 'flex', 'none', 'none', 'none', 'none'],
                     ),
-                    display=['flex', 'none', 'none', 'none', 'none', 'none'],
                 ),
-                label='Work In Progress'
+                rx.menu_list(
+                    rx.menu_item(
+                        rx.link(
+                            'Inicio',
+                            href='/'
+                        ),
+                        background_color='transparent',
+                    ),
+                    rx.menu_item(
+                        rx.link(
+                            'Sobre Mi',
+                            href='/'
+                        ),
+                        background_color='transparent',
+                    ),
+                    rx.menu_item(
+                        rx.link(
+                            'Proyectos',
+                            href='/'
+                        ),
+                        background_color='transparent',
+                    ),
+                    rx.menu_item(
+                        rx.link(
+                            'Blog',
+                            href='/'
+                        ),
+                        background_color='transparent',
+                    ),
+                    rx.menu_item(
+                        rx.link(
+                            'Contacto',
+                            href='/'
+                        ),
+                        background_color='transparent',
+                    ),
+                    text_color=Colors.ACCENT.value,
+                    background_color=Colors.BODY_BACKGROUND.value,
+                    border_color=Colors.PRIMARY.value,
+                    border_radius='1em',
+                    border_width='1px',
+                ),
             ),
             rx.link(
-                'Home',
+                'Inicio',
                 href='/',
-                display=['none', 'flex','flex','flex','flex', 'flex'],
+                display=['none', 'none','flex','flex','flex', 'flex'],
+            ),
+            rx.tooltip(
+                rx.link(
+                    'Sobre Mi',
+                    display=['none', 'none','flex','flex','flex', 'flex'],
+                ),
+                label='Work In Progress'
             ),
             rx.tooltip(
                 rx.link(
                     'Proyectos',
-                    display=['none', 'flex','flex','flex','flex', 'flex'],
+                    display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'
             ),
             rx.tooltip(
                 rx.link(
                     'Blog',
-                    display=['none', 'flex','flex','flex','flex', 'flex'],
+                    display=['none', 'none','flex','flex','flex', 'flex'],
+                ),
+                label='Work In Progress'
+            ),
+            rx.tooltip(
+                rx.link(
+                    'Contacto',
+                    display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'
             ),
         ),
-
         position="fixed",
         width="100%",
         top="0px",

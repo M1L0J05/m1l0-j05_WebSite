@@ -10,7 +10,7 @@ def navbar():
         rx.link(
             rx.hstack(
                 rx.image(
-                    src="mj_logo.png",
+                    src="/mj_logo.png",
                     max_width='75px', 
                     height="auto",
                 ),
@@ -50,28 +50,28 @@ def navbar():
                     rx.menu_item(
                         rx.link(
                             'Sobre Mi',
-                            href='/'
+                            href='/wip'
                         ),
                         background_color='transparent',
                     ),
                     rx.menu_item(
                         rx.link(
                             'Proyectos',
-                            href='/'
+                            href='/wip'
                         ),
                         background_color='transparent',
                     ),
                     rx.menu_item(
                         rx.link(
                             'Blog',
-                            href='/'
+                            href='/wip'
                         ),
                         background_color='transparent',
                     ),
                     rx.menu_item(
                         rx.link(
                             'Contacto',
-                            href='/'
+                            href='/wip'
                         ),
                         background_color='transparent',
                     ),
@@ -90,6 +90,7 @@ def navbar():
             rx.tooltip(
                 rx.link(
                     'Sobre Mi',
+                    href='/wip',
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'
@@ -97,6 +98,7 @@ def navbar():
             rx.tooltip(
                 rx.link(
                     'Proyectos',
+                    href='/wip',
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'
@@ -104,6 +106,7 @@ def navbar():
             rx.tooltip(
                 rx.link(
                     'Blog',
+                    href='/wip',
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'
@@ -111,6 +114,7 @@ def navbar():
             rx.tooltip(
                 rx.link(
                     'Contacto',
+                    href='/wip',
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'

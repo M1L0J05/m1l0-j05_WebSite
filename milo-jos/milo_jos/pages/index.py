@@ -7,7 +7,7 @@ from milo_jos.styles.colors import Colors
 
 #Variables
 texto1 = 'Soy'
-texto2 = ' Emilio J.'
+texto2 = ' Emilio José'
 texto3 = ', entusiasta y apasionado por la tecnología, programación,  diseño web y sobre todo 100% autodidacta. Esta web es un proyecto personal de código libre, una aventura de aprendizaje que comparto contigo. Gracias por visitar mi espacio creativo.'
 
 @template(route='/', title='m1l0_j05 WebSite')

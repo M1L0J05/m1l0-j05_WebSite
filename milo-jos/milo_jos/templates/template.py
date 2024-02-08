@@ -2,8 +2,8 @@ from typing import Callable
 
 import reflex as rx
 
-from  milo_jos.styles import styles
-from milo_jos.components import navbar
+from milo_jos.components import navbar, footer
+from milo_jos.styles.styles import Size
 
 # Etiquetas metadatos para la aplicacion
 default_meta = [
@@ -64,9 +64,11 @@ def template(
                 navbar(),
                 rx.center(
                     page_content(),
-                    margin_top='75px !important',
+                    margin_top=Size.EXTRA_BIG.value,
                     width='100% !important',
                 ),
+                rx.spacer(),
+                footer(),
             )
 
         return templated_page

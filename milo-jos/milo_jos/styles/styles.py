@@ -14,19 +14,23 @@ MAX_WIDTH = '75em !important' # 1200px
 STYLE_SHEETS = [
 	'https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap',
 	'/custom_style_sheets/normalize.css',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css',
 ]
 
 
 # Sizes
 class Size(Enum):
 	ZERO = '0px !important'
+	MICRO = '0.1em !important'
 	VERY_SMALL = '0.3em !important'
 	SMALL = '0.5em !important'
 	MEDIUM = '0.8em !important'
 	DEFAULT = '1em !important'
 	LARGE = '1.5em !important'
 	BIG = '2em !important'
+	MEDIUM_BIG = '2.5em !important'
 	VERY_BIG = '3em !important'
+	EXTRA_BIG = '4em !important'
 
 
 # Base styles.

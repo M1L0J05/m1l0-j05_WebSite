@@ -66,6 +66,7 @@ def template(
                     page_content(),
                     margin_top=Size.EXTRA_BIG.value,
                     width='100% !important',
+                    min_height='85vh !important',
                 ),
                 rx.spacer(),
                 footer(),

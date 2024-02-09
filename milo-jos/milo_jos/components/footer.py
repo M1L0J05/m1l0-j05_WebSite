@@ -14,7 +14,7 @@ def footer() -> rx.Component:
                 class_name='devicon-github-original',
                 font_size=Size.MEDIUM_BIG.value,
             ),
-            href='https://github.com/M1L0J05/my_web_repo',
+            href='https://github.com/M1L0J05/m1l0-j05_WebSite',
             is_external=True,
             padding=Size.MICRO.value,
             color=Colors.PRIMARY.value,
@@ -23,7 +23,7 @@ def footer() -> rx.Component:
         rx.text(
             years_copy,
             rx.span(
-                'Creado por m1lo_j05 ', 
+                'Creado por m1l0_j05 ', 
                 color=Colors.ACCENT.value,
             ),
             'V1.'

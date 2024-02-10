@@ -50,7 +50,7 @@ def navbar():
                     rx.menu_item(
                         rx.link(
                             'Sobre Mi',
-                            href='/wip'
+                            href='/about_me'
                         ),
                         background_color='transparent',
                     ),
@@ -90,7 +90,7 @@ def navbar():
             rx.tooltip(
                 rx.link(
                     'Sobre Mi',
-                    href='/wip',
+                    href='/about_me',
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
                 label='Work In Progress'

@@ -13,8 +13,9 @@ MAX_WIDTH = '75em !important' # 1200px
 # External style sheets
 STYLE_SHEETS = [
 	'https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap',
+	'https://fonts.googleapis.com/css2?family=Comfortaa:wght@100;300;500;700&display=swap',
 	'/custom_style_sheets/normalize.css',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css',
+	'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css',
 ]
 
 
@@ -38,7 +39,7 @@ BASE_STYLES = {
 	'font_family' : Fonts.DEFAULT.value,
 	'font_weight' : FontWeight.DEFAULT.value,
 	'color' : Colors.PRIMARY.value,
-	'background_image' :'circuit-board.svg', 
+	'background_image' : '/circuit-board.svg', 
 	rx.Link : {
 		'text_decoration' : 'None',
 		'_hover' : {

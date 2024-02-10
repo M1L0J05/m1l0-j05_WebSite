@@ -24,7 +24,11 @@ def mobile_view() -> rx.Component:
             color=Colors.CONTENT.value,
         ),
 
-        quote(data['quote_1']),
+        quote(
+            f'"{data["quote_1"]}"', 
+            as_='i',
+            text_align='center',
+        ),
         
         rx.image(
             src='/images/img_web_3.png',
@@ -35,7 +39,11 @@ def mobile_view() -> rx.Component:
             color=Colors.CONTENT.value,
         ),
 
-        quote(data['quote_2']),
+        quote(
+            f'"{data["quote_2"]}"', 
+            as_='i',
+            text_align='center',
+        ),
 
         rx.image(
             src='/images/img_web_2.png',
@@ -69,7 +77,11 @@ def normal_view() -> rx.Component:
         ),
 
         rx.spacer(),
-        quote(data['quote_1']),
+        quote(
+            f'"{data["quote_1"]}"', 
+            as_='i',
+            text_align='center',
+        ),
         rx.spacer(),
 
         rx.hstack(
@@ -88,7 +100,11 @@ def normal_view() -> rx.Component:
         ),
 
         rx.spacer(),
-        quote(data['quote_2']),
+        quote(
+            f'"{data["quote_2"]}"', 
+            as_='i',
+            text_align='center',
+        ),
         rx.spacer(),
 
         rx.hstack(

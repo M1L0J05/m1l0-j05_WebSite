@@ -33,7 +33,7 @@ def quote (quote: str) -> rx.Component:
 def mobile_view() -> rx.Component:
     return rx.vstack(
         rx.image(
-            src='/img_web_1.png',
+            src='/images/img_web_1.png',
         ),
         rx.text(
             data['text_1'],
@@ -44,7 +44,7 @@ def mobile_view() -> rx.Component:
         quote(data['quote_1']),
         
         rx.image(
-            src='/img_web_3.png',
+            src='/images/img_web_3.png',
         ),
         rx.text(
             data['text_2'],
@@ -55,7 +55,7 @@ def mobile_view() -> rx.Component:
         quote(data['quote_2']),
 
         rx.image(
-            src='/img_web_2.png',
+            src='/images/img_web_2.png',
         ),
         rx.text(
             data['text_3'],
@@ -80,7 +80,7 @@ def normal_view() -> rx.Component:
                 padding=Size.DEFAULT.value,
             ),
             rx.image(
-                src='/img_web_1.png',
+                src='/images/img_web_1.png',
                 max_width='395px'
             ),
         ),
@@ -92,7 +92,7 @@ def normal_view() -> rx.Component:
         rx.hstack(
             rx.image(
                 max_height='395px',
-                src='/img_web_3.png',
+                src='/images/img_web_3.png',
             ),
             rx.text(
                 data['text_2'],
@@ -118,7 +118,7 @@ def normal_view() -> rx.Component:
             ),
             rx.image(
                 max_height='395px',
-                src='/img_web_2.png',
+                src='/images/img_web_2.png',
             ),
         ),
 

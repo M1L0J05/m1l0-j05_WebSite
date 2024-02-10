@@ -5,30 +5,13 @@ from milo_jos.templates import template
 from milo_jos.styles.styles import *
 from milo_jos.styles.colors import Colors
 from milo_jos.styles.fonts import Fonts, FontWeight
+from milo_jos.components import quote
 
 
 #Variables
 with open('assets/texts/about_me.json') as f:
     data = json.load(f)
 
-def quote (quote: str) -> rx.Component:
-    return rx.vstack(
-        rx.divider(
-            border_color=Colors.ACCENT.value
-        ),
-        rx.spacer(),
-        rx.heading(
-            f'"{quote}"',
-            size='lg',
-            as_='i',
-            font_family=Fonts.HEADING.value,
-        ),
-        rx.spacer(),
-        rx.divider(
-            border_color=Colors.ACCENT.value
-        ),
-        width='100%'
-    )
 
 def mobile_view() -> rx.Component:
     return rx.vstack(

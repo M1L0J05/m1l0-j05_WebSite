@@ -10,7 +10,7 @@ def navbar():
         rx.link(
             rx.hstack(
                 rx.image(
-                    src="/mj_logo.png",
+                    src="/images/mj_logo.png",
                     max_width='75px', 
                     height="auto",
                 ),
@@ -87,13 +87,10 @@ def navbar():
                 href='/',
                 display=['none', 'none','flex','flex','flex', 'flex'],
             ),
-            rx.tooltip(
-                rx.link(
-                    'Sobre Mi',
-                    href='/about_me',
-                    display=['none', 'none','flex','flex','flex', 'flex'],
-                ),
-                label='Work In Progress'
+            rx.link(
+                'Sobre Mi',
+                href='/about_me',
+                display=['none', 'none','flex','flex','flex', 'flex'],
             ),
             rx.tooltip(
                 rx.link(

@@ -39,7 +39,7 @@ BASE_STYLES = {
 	'font_family' : Fonts.DEFAULT.value,
 	'font_weight' : FontWeight.DEFAULT.value,
 	'color' : Colors.PRIMARY.value,
-	'background_image' : '/circuit-board.svg', 
+	'background_image' : '/images/circuit-board.svg', 
 	rx.Link : {
 		'text_decoration' : 'None',
 		'_hover' : {

@@ -18,7 +18,7 @@ def index() -> rx.Component:
         rx.vstack(
             rx.vstack(
                 rx.avatar(
-                    src='milo_jos.png',
+                    src='/images/milo_jos.png',
                     min_height='512px',
                     width='auto',
                     border_width='3px',

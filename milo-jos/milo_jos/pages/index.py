@@ -3,6 +3,8 @@ import reflex as rx
 from milo_jos.templates import template
 from milo_jos.styles.styles import *
 from milo_jos.styles.colors import Colors
+from milo_jos.styles.fonts import Fonts, FontWeight
+
 
 
 #Variables
@@ -39,6 +41,9 @@ def index() -> rx.Component:
                     margin_y=Size.DEFAULT.value,
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
+
+                font_family =  Fonts.HEADING.value,
+                font_weight =  FontWeight.BOLD.value,
             ),
             rx.divider(
                 border_color=Colors.ACCENT.value

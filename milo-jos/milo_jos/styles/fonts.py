@@ -3,6 +3,7 @@ from enum import Enum
 
 class Fonts(Enum):
     DEFAULT = 'Poppins' 
+    HEADING = 'Comfortaa'
 
 
 class FontWeight(Enum):

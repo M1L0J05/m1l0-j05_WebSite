@@ -9,7 +9,7 @@ from milo_jos.components import quote
 
 
 #Variables
-with open('assets/texts/about_me.json') as f:
+with open('assets/data/about_me.json') as f:
     data = json.load(f)
 
 

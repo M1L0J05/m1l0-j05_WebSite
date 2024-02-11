@@ -4,7 +4,7 @@ from milo_jos.styles.colors import Colors
 from milo_jos.styles.fonts import Fonts, FontWeight
 
 
-def quote (quote: str='', *args, **kwargs) -> rx.Component:
+def quote (quote: str='', size='lg', *args, **kwargs) -> rx.Component:
     return rx.vstack(
         rx.divider(
             border_color=Colors.ACCENT.value
@@ -12,7 +12,7 @@ def quote (quote: str='', *args, **kwargs) -> rx.Component:
         rx.spacer(),
         rx.heading(
             quote,
-            size='lg',
+            size=size,
             font_family=Fonts.HEADING.value,
             *args,
             **kwargs,

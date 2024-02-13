@@ -40,13 +40,23 @@ BASE_STYLES = {
 	'font_weight' : FontWeight.DEFAULT.value,
 	'color' : Colors.PRIMARY.value,
 	'background_image' : '/images/circuit-board.svg', 
+	
 	rx.Link : {
 		'text_decoration' : 'None',
 		'_hover' : {
 			'text_decoration' : 'None',
 			'color' : Colors.CONTENT.value,
 		}
-	}
+	},
+
+	rx.Card : {
+		#'width' : '100%,',
+		#'variant' : 'outline',
+		'padding' : Size.DEFAULT.value,
+		'background_color' : Colors.BODY_BACKGROUND.value,
+		'color' : Colors.CONTENT.value,
+		'border' : f'1px solid {Colors.BACKGROUND.value}',
+	},
 }
 
 

@@ -1,0 +1,33 @@
+{
+    "Proyecto_1": {
+        "nombre": "Portal Corporativo (Autohosting)",
+        "resumen": "Portal web corporativo autohospedado con enlaces a recursos utilizados por los empleados. Incluye gestión de usuarios y áreas de acceso restringido para la gestión de personal y control de material informático.",
+        "descripcion": "Desarrollo de un portal web corporativo autohospedado que proporciona acceso a recursos comunes utilizados por los empleados. El portal está desplegado en una máquina Debian y se administra utilizando Docker para la gestión de contenedores. El ecosistema consta de tres contenedores: uno para Nginx como servidor web, otro para Django como el framework de la aplicación web y un tercero para MySQL como el sistema de gestión de bases de datos. Nginx se encarga del enrutamiento y la gestión de solicitudes HTTP. El sistema incluye un sistema de gestión de usuarios que permite el acceso basado en roles. Los usuarios autenticados pueden acceder a áreas restringidas para gestionar y consultar información sobre el personal de la empresa, así como para el control y gestión del material informático.",
+        "tecnologias": ["Docker", "Nginx", "Django", "MySQL", "Python", "HTML5", "CSS3", "JavaScript", "bootstrap"],
+        "url": "https://www.ejemplo.com/portal-corporativo",
+        "imagen": "/images/project.jpg",
+        "fecha_inicio": "2023-01-01",
+        "fecha_fin": "2023-03-01"
+    },
+    "Proyecto_2": {
+        "nombre": "Nombre del Proyecto 2",
+        "resumen": "El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de de Finibus Bonorum et Malorum por Cicero son también reproducidas en su forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en 1914 por H. Rackham.",
+        "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at augue vel ligula laoreet ultrices. Nunc vel purus egestas, viverra tortor ut, ullamcorper augue. Sed leo erat, sollicitudin ut molestie vitae, egestas id risus. In ultrices, diam venenatis dapibus finibus, sapien massa cursus est, sit amet fringilla nulla sapien at ipsum. Quisque ut fringilla quam. In ac accumsan ligula, id auctor enim. Sed dapibus lorem quis laoreet iaculis. Phasellus metus sem, mattis nec luctus ac, aliquam eget tortor. Fusce imperdiet eleifend ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at augue vel ligula laoreet ultrices. Nunc vel purus egestas, viverra tortor ut, ullamcorper augue. Sed leo erat, sollicitudin ut molestie vitae, egestas id risus. In ultrices, diam venenatis dapibus finibus, sapien massa cursus est, sit amet fringilla nulla sapien at ipsum. Quisque ut fringilla quam. In ac accumsan ligula, id auctor enim. Sed dapibus lorem quis laoreet iaculis. Phasellus metus sem, mattis nec luctus ac, aliquam eget tortor. Fusce imperdiet eleifend ultricies. ",
+        "tecnologias": ["JavaScript", "React", "CSS"],
+        "url": "/images/project.jpg",
+        "imagen": "/images/project.jpg",
+        "fecha_inicio": "2023-04-01",
+        "fecha_fin": "2023-06-01"
+    },
+    "Proyecto_3": {
+        "nombre": "Nombre del Proyecto 3",
+        "resumen": "El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de de Finibus Bonorum et Malorum por Cicero son también reproducidas en su forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en 1914 por H. Rackham.",
+        "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at augue vel ligula laoreet ultrices. Nunc vel purus egestas, viverra tortor ut, ullamcorper augue. Sed leo erat, sollicitudin ut molestie vitae, egestas id risus. In ultrices, diam venenatis dapibus finibus, sapien massa cursus est, sit amet fringilla nulla sapien at ipsum. Quisque ut fringilla quam. In ac accumsan ligula, id auctor enim. Sed dapibus lorem quis laoreet iaculis. Phasellus metus sem, mattis nec luctus ac, aliquam eget tortor. Fusce imperdiet eleifend ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at augue vel ligula laoreet ultrices. Nunc vel purus egestas, viverra tortor ut, ullamcorper augue. Sed leo erat, sollicitudin ut molestie vitae, egestas id risus. In ultrices, diam venenatis dapibus finibus, sapien massa cursus est, sit amet fringilla nulla sapien at ipsum. Quisque ut fringilla quam. In ac accumsan ligula, id auctor enim. Sed dapibus lorem quis laoreet iaculis. Phasellus metus sem, mattis nec luctus ac, aliquam eget tortor. Fusce imperdiet eleifend ultricies. ",
+        "tecnologias": ["Java", "Spring Boot", "MySQL"],
+        "url": "/images/project.jpg",
+        "imagen": "/images/project.jpg",
+        "fecha_inicio": "2023-07-01",
+        "fecha_fin": "2023-09-01"
+    }
+}
+

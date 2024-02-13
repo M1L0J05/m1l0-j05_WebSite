@@ -57,7 +57,7 @@ def navbar():
                     rx.menu_item(
                         rx.link(
                             'Proyectos',
-                            href='/wip'
+                            href='/projects'
                         ),
                         background_color='transparent',
                     ),
@@ -92,13 +92,10 @@ def navbar():
                 href='/about_me',
                 display=['none', 'none','flex','flex','flex', 'flex'],
             ),
-            rx.tooltip(
-                rx.link(
-                    'Proyectos',
-                    href='/wip',
-                    display=['none', 'none','flex','flex','flex', 'flex'],
-                ),
-                label='Work In Progress'
+            rx.link(
+                'Proyectos',
+                href='/projects',
+                display=['none', 'none','flex','flex','flex', 'flex'],
             ),
             rx.tooltip(
                 rx.link(

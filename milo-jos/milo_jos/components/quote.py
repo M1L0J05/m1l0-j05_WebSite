@@ -12,7 +12,7 @@ def quote (quote: str='', size='lg', *args, **kwargs) -> rx.Component:
         rx.spacer(),
         rx.heading(
             quote,
-            size=size,
+            #size=size,
             font_family=Fonts.HEADING.value,
             *args,
             **kwargs,

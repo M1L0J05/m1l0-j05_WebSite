@@ -11,7 +11,7 @@ from milo_jos.styles.colors import Colors
 with open('assets/data/projects.json') as f:
     projects_data = json.load(f)
 
-
+"""
 def projects_items() -> rx.Component:
     return rx.responsive_grid(
         *[
@@ -33,19 +33,19 @@ def projects_items() -> rx.Component:
                             color=Colors.SECONDARY.value,
                             font_size=Size.LARGE.value,
                         ),
-                        rx.responsive_grid(
-                            *[
-                                rx.text(
-                                    class_name=f'devicon-{tecnologia.lower()}-plain',
-                                    font_size=Size.LARGE.value,
-                                    padding=Size.VERY_SMALL.value,
-                                    text_color=Colors.ACCENT.value,
-                                )
-                                for tecnologia in projects_data[key]['tecnologias']
-                            ],
-                            columns=[7, 7, 9],
-                        ), 
-                        padding=Size.VERY_SMALL.value,
+                        #rx.responsive_grid(
+                        #    *[
+                        #        rx.text(
+                        #            class_name=f'devicon-{tecnologia.lower()}-plain',
+                        #            font_size=Size.LARGE.value,
+                        #            padding=Size.VERY_SMALL.value,
+                        #            text_color=Colors.ACCENT.value,
+                        #        )
+                        #        for tecnologia in projects_data[key]['tecnologias']
+                        #    ],
+                        #    columns=[7, 7, 9],
+                        #), 
+                        #padding=Size.VERY_SMALL.value,
                     ),
                     rx.spacer(),
                     rx.text(
@@ -84,6 +84,7 @@ def projects_items() -> rx.Component:
         width='100%,'
     )
 
+"""
 
 @template(route='/projects', title='m1l0_j05 WebSite')
 def projects() -> rx.Component:
@@ -98,7 +99,7 @@ def projects() -> rx.Component:
             #    size='2xl',
             #),
             rx.spacer(),
-            projects_items(),
+            #projects_items(),
             rx.spacer(),
 
             width='95%',
@@ -107,3 +108,4 @@ def projects() -> rx.Component:
             max_width=MAX_WIDTH,
         ),
     )
+

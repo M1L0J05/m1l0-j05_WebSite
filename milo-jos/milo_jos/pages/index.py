@@ -51,10 +51,10 @@ def index() -> rx.Component:
             rx.vstack(
                 rx.text(
                     texto1,
-                    rx.span(
-                        texto2,
-                        color=Colors.SECONDARY.value,
-                    ),
+                    #rx.span(
+                    #    texto2,
+                    #    color=Colors.SECONDARY.value,
+                    #),
                     texto3,
                     
                     color=Colors.CONTENT.value,

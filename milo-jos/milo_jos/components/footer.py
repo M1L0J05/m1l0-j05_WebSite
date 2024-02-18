@@ -22,9 +22,10 @@ def footer() -> rx.Component:
         
         rx.text(
             years_copy,
-            rx.span(
+            rx.text(
                 'Creado por m1l0_j05 ', 
                 color=Colors.ACCENT.value,
+                as_='span'   
             ),
             'V1.'
         ),
@@ -35,10 +36,11 @@ def footer() -> rx.Component:
 
         rx.text(
             'I',
-            rx.span(
+            rx.text(
                 ' LoVe ',
                 color='red',
-                font_weight=FontWeight.BOLD.value
+                font_weight=FontWeight.BOLD.value,
+                as_='span'
             ),
             'Linares!',
             color=Colors.SECONDARY.value, 
@@ -47,5 +49,7 @@ def footer() -> rx.Component:
         color=Colors.CONTENT.value,
         font_size=Size.MEDIUM.value,
         padding=Size.DEFAULT.value,
-        spacing=Size.MICRO.value,
+        align='center',
+        justify='center',
+        margin='auto',
     )

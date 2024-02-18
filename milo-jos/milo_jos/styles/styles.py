@@ -14,7 +14,6 @@ MAX_WIDTH = '75em !important' # 1200px
 STYLE_SHEETS = [
 	'https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap',
 	'https://fonts.googleapis.com/css2?family=Comfortaa:wght@100;300;500;700&display=swap',
-	'/custom_style_sheets/normalize.css',
 	'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css',
 ]
 
@@ -39,9 +38,10 @@ BASE_STYLES = {
 	'font_family' : Fonts.DEFAULT.value,
 	'font_weight' : FontWeight.DEFAULT.value,
 	'color' : Colors.PRIMARY.value,
-	'background_image' : '/images/circuit-board.svg', 
+	'background_color' : 'black',
+	'background_image' : "url(/images/circuit-board.svg)", 
 	
-	rx.Link : {
+	rx.link : {
 		'text_decoration' : 'None',
 		'_hover' : {
 			'text_decoration' : 'None',
@@ -49,7 +49,8 @@ BASE_STYLES = {
 		}
 	},
 
-	rx.Card : {
+
+	rx.card : {
 		#'width' : '100%,',
 		#'variant' : 'outline',
 		'padding' : Size.DEFAULT.value,

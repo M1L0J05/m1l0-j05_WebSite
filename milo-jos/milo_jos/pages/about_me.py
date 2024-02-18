@@ -55,7 +55,7 @@ def mobile_view() -> rx.Component:
         ),
 
         display=['flex', 'flex', 'flex', 'none', 'none', 'none'],
-        spacing=Size.BIG.value,
+        #spacing=Size.BIG.value,
         padding=Size.SMALL.value,
     )
 
@@ -122,7 +122,7 @@ def normal_view() -> rx.Component:
         ),
 
         display=['none', 'none','none','flex','flex', 'flex'],
-        spacing=Size.BIG.value,
+        #spacing=Size.BIG.value,
     )
 
 

@@ -23,6 +23,7 @@ def index() -> rx.Component:
                     width='auto',
                     border_width='3px',
                     border_color=Colors.PRIMARY.value,
+                    radius='full'
                 ),
                 rx.spacer(),
                 rx.vstack(
@@ -33,6 +34,8 @@ def index() -> rx.Component:
                     font_size=Size.BIG.value,
                     margin_y=Size.DEFAULT.value,
                     display=['flex', 'flex', 'none', 'none', 'none', 'none'],
+                    justify='center',
+                    align='center',
                 ),
                 rx.text(
                     'Bienvenid@s a mi WebSite', 
@@ -44,17 +47,20 @@ def index() -> rx.Component:
 
                 font_family =  Fonts.HEADING.value,
                 font_weight =  FontWeight.BOLD.value,
+                justify='center',
+                align='center',
             ),
             rx.divider(
-                border_color=Colors.ACCENT.value
+                background_color=Colors.ACCENT.value,
             ),
             rx.vstack(
                 rx.text(
                     texto1,
-                    #rx.span(
-                    #    texto2,
-                    #    color=Colors.SECONDARY.value,
-                    #),
+                    rx.text(
+                        texto2,
+                        as_='span',
+                        color=Colors.SECONDARY.value,
+                    ),
                     texto3,
                     
                     color=Colors.CONTENT.value,
@@ -66,34 +72,15 @@ def index() -> rx.Component:
 
             ),
             rx.divider(
-                border_color=Colors.ACCENT.value
+                background_color=Colors.ACCENT.value
             ),
-            #rx.vstack(    
-            #    rx.box(
-            #        "This is a test text...",
-            #        color='#DADADE',
-            #    ),
-            #    rx.box(
-            #        "This is a test text...",
-            #        color='grey',
-            #    ),
-            #    rx.link(
-            #        "Check out our docs!",
-            #        color='#CB91E5',
-            #        border="0.1em solid #335DB8",
-            #        padding="0.5em",
-            #        border_radius="0.5em",
-            #        _hover={
-            #            "color": "#DADADE",
-            #            "border" : "0.1em solid #4EA0ED",
-            #        },
-            #    ),
-            #),
 
             width='95%',
             padding=Size.LARGE.value,
             border_radius=Size.SMALL.value,
             min_width=MIN_WIDTH,
             max_width=MAX_WIDTH,
+            justify='center',
+            align='center',
         ),
     )

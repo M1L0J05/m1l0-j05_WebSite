@@ -26,8 +26,10 @@ def mobile_view() -> rx.Component:
 
         quote(
             f'"{data["quote_1"]}"', 
-            as_='i',
+            as_='em',
             text_align='center',
+            size='6',
+            weight='bold',
         ),
         
         rx.image(
@@ -41,8 +43,10 @@ def mobile_view() -> rx.Component:
 
         quote(
             f'"{data["quote_2"]}"', 
-            as_='i',
+            as_='em',
             text_align='center',
+            size='6',
+            weight='bold',
         ),
 
         rx.image(
@@ -55,7 +59,7 @@ def mobile_view() -> rx.Component:
         ),
 
         display=['flex', 'flex', 'flex', 'none', 'none', 'none'],
-        #spacing=Size.BIG.value,
+        spacing='5',
         padding=Size.SMALL.value,
     )
 
@@ -79,8 +83,10 @@ def normal_view() -> rx.Component:
         rx.spacer(),
         quote(
             f'"{data["quote_1"]}"', 
-            as_='i',
+            as_='em',
             text_align='center',
+            size='6',
+            weight='bold',
         ),
         rx.spacer(),
 
@@ -102,8 +108,10 @@ def normal_view() -> rx.Component:
         rx.spacer(),
         quote(
             f'"{data["quote_2"]}"', 
-            as_='i',
+            as_='em',
             text_align='center',
+            size='6',
+            weight='bold',
         ),
         rx.spacer(),
 
@@ -122,7 +130,9 @@ def normal_view() -> rx.Component:
         ),
 
         display=['none', 'none','none','flex','flex', 'flex'],
-        #spacing=Size.BIG.value,
+        spacing='3',
+        justify='center',
+        align='center',
     )
 
 

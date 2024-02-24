@@ -1,5 +1,4 @@
 import json
-from typing import Dict, Any, Tuple, List
 import reflex as rx
 
 
@@ -8,104 +7,120 @@ from milo_jos.templates import template
 from milo_jos.styles.styles import *
 from milo_jos.styles.colors import Colors
 
+
+# Abrimos el archivo JSON con los datos de los proyectos
 with open('assets/data/projects.json') as f:
-    projects_data = json.load(f)
+    json_data = json.load(f)  # Cargamos los datos del archivo JSON
 
-"""
-def projects_items() -> rx.Component:
-    return rx.responsive_grid(
-        *[
-            rx.card(
-                rx.vstack(
-                    rx.image(
-                        src=projects_data[key]['imagen'],
-                        #padding=Size.DEFAULT.value,
-                        border_radius=Size.SMALL.value,
-                        box_shadow='lg',
-                        border=f'1px solid {Colors.SECONDARY.value}',
-                        max_width='90%',
-                        margin_bottom=Size.DEFAULT.value,
-                    ),
-                    rx.spacer(),
-                    rx.vstack(
-                        rx.text(
-                            'Tecnologías',
-                            color=Colors.SECONDARY.value,
-                            font_size=Size.LARGE.value,
-                        ),
-                        #rx.responsive_grid(
-                        #    *[
-                        #        rx.text(
-                        #            class_name=f'devicon-{tecnologia.lower()}-plain',
-                        #            font_size=Size.LARGE.value,
-                        #            padding=Size.VERY_SMALL.value,
-                        #            text_color=Colors.ACCENT.value,
-                        #        )
-                        #        for tecnologia in projects_data[key]['tecnologias']
-                        #    ],
-                        #    columns=[7, 7, 9],
-                        #), 
-                        #padding=Size.VERY_SMALL.value,
-                    ),
-                    rx.spacer(),
-                    rx.text(
-                        'Descripción',
-                        color=Colors.SECONDARY.value,
-                        font_size=Size.LARGE.value,
-                    ),
-                    rx.text(
-                        projects_data[key]['descripcion'],
-                        text_align='justify',
-                    ),
+class Proyectos(rx.State):
+    proyectos:  list[dict] = json_data['proyectos']
+
+    #def get_data(self):
+    #    with open('assets/data/projects.json') as f:
+    #        json_data = json.load(f)
+    #    print(json_data['proyectos'])
+    #    self.proyectos = json_data['proyectos']
+
+
+    def card_proyecto(self, proyecto: dict):
+        return rx.card(
+            rx.inset(
+                rx.image(
+                    src=proyecto['imagen'],
+                    width='100%',
+                    margin='auto'
                 ),
-                header = quote(
-                    f'{projects_data[key]["nombre"]}',
-                    size='xl',
-                    padding=Size.SMALL.value,
+                side="top",
+                pb="current",
+            ),
+            quote(
+                proyecto['nombre'],
+                text_align='center',
+                font_weight=FontWeight.BOLD.value,
+                size=Spacing.LARGE.value,
+            ),
+            rx.text(
+                '- Resumen -',
+                color=Colors.SECONDARY.value,
+                text_align='center',
+                font_size=Size.MEDIUM.value,
+                margin_top=Size.DEFAULT.value,
+                margin_bottom=Size.MICRO_SMALL.value,
+            ),
+            rx.text(
+                proyecto['resumen'],
+            ),
+            rx.text(
+                '- Tecnologías -',
+                color=Colors.SECONDARY.value,
+                text_align='center',
+                font_size=Size.MEDIUM.value,
+                margin_y=Size.MICRO_SMALL.value,
+            ),
+            rx.flex(
+                *[
+                    rx.text(
+                        class_name=f'devicon-{tech.lower()}-plain',
+                        font_size=Size.MEDIUM.value,
+                    )
+                    for tech in proyecto['tecnologias']
+                ],
+                wrap='wrap',
+                spacing=Spacing.SMALL.value,
+                justify='center',
+                align='center', 
+            ),
+            rx.text(
+                '- Inicio & Fin -',
+                color=Colors.SECONDARY.value,
+                text_align='center',
+                font_size=Size.MEDIUM.value,
+                margin_y=Size.MICRO_SMALL.value,
+            ),
+            rx.vstack(
+                rx.text(
+                    proyecto['fecha_inicio'], 
                     text_align='center',
-                    color=Colors.PRIMARY.value,
                 ),
-                footer=rx.heading(
-                    projects_data[key]['fecha_fin'],
-                    size='sm',
-                    font_family=Fonts.HEADING.value,
-                    padding=Size.SMALL.value,
-                    text_align='center'
+                rx.text(
+                    proyecto['fecha_fin'].upper(), 
+                    color=Colors.ACCENT.value,
+                    text_align='center',
                 ),
-                box_shadow='0px 0px 35px -15px rgba(148,12,227,0.5)',
-            )
-            for key, value  in projects_data.items()
-        ],
+                align='center',
+                justify='center'
+            ),
 
-        columns=[1],
-        spacing=Size.DEFAULT.value,
-        margin_y=Size.VERY_BIG.value,
-        padding=Size.SMALL.value,
-        width='100%,'
-    )
+            max_width=MID_WIDTH,
+            background_color='transparent',
+            size=Spacing.DEFAULT.value,
+            width=['90vw','90vw','45vw','45vw','33vw',],
+        )
+    
+    def render_proyecto(self ):
+        return rx.flex(
+            *[
+                self.card_proyecto(
+                    proyecto
+                )
+                for proyecto in self.proyectos
+            ],
+            spacing=Spacing.SMALL.value,
+            justify='center',
+            flex_wrap='wrap',
+            margin='auto',
+        )
 
-"""
 
-@template(route='/projects', title='m1l0_j05 WebSite')
-def projects() -> rx.Component:
+@template(route='/projects', title='m1l0_j05 WebSite', )
+def projects( ) -> rx.Component:
+    proyectos = Proyectos()
     return rx.fragment(
         rx.vstack(
-            #rx.image(
-            #    src='/images/banner_project.svg',
-            #    min_width=Size.EXTRA_BIG.value,
-            #),
-            #quote(
-            #    'Proyectos',
-            #    size='2xl',
-            #),
             rx.spacer(),
-            #projects_items(),
-            rx.spacer(),
-
+            proyectos.render_proyecto(),
             width='95%',
-            border_radius=Size.SMALL.value,
             min_width=MIN_WIDTH,
-            max_width=MAX_WIDTH,
+            margin_top=Size.BIG.value,
         ),
     )
-

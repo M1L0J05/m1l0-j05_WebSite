@@ -2,7 +2,7 @@ import reflex as rx
 
 from milo_jos.styles.styles import Size
 from milo_jos.styles.colors import Colors
-from milo_jos.styles.styles import CUSTOM_BOX_STYLES
+from milo_jos.styles.styles import CUSTOM_BOX_STYLES, Spacing
 
 
 def navbar():
@@ -10,7 +10,7 @@ def navbar():
         rx.link(
             rx.hstack(
                 rx.image(
-                    src='/images/mj_logo.png',
+                    src='/images/root/mj_logo.png',
                     max_width='75px', 
                     height='auto',
                 ),
@@ -19,10 +19,10 @@ def navbar():
                     font_size=Size.BIG.value,
                     color=Colors.PRIMARY.value,
                 ),
-                padding=Size.VERY_SMALL.value,
                 align='center',
             ),
-            href='/'
+            href='/',
+            margin_left=Size.DEFAULT.value,
         ),
         rx.spacer(),
         rx.box(
@@ -32,9 +32,9 @@ def navbar():
                         tag='menu',
                         color='#CB91E5',
                         style=CUSTOM_BOX_STYLES,
-                        width=Size.VERY_BIG.value,
-                        height=Size.VERY_BIG.value,
-                        padding=Size.SMALL.value,
+                        width=Size.BIG.value,
+                        height=Size.BIG.value,
+                        padding=Size.MICRO_SMALL.value,
                     ),
                 ),
                 rx.menu.content(
@@ -61,13 +61,13 @@ def navbar():
                     ),
                     background_color=Colors.BODY_BACKGROUND.value,
                     border_color=Colors.PRIMARY.value,
-                    border_radius='1em',
+                    border_radius=Size.DEFAULT.value,
                     border_width='1px',
                 ), 
             ),
             display=['flex', 'flex', 'none', 'none', 'none', 'none'],
+            margin_right=Size.DEFAULT.value,
         ),
-
         rx.hstack(
             rx.link(
                 'Inicio',
@@ -82,6 +82,8 @@ def navbar():
                 href='/projects',
             ),
             display=['none', 'none','flex','flex','flex', 'flex'],
+            margin_right=Size.MEDIUM.value,
+            spacing=Spacing.DEFAULT.value,
         ),
 
         position='fixed',
@@ -89,6 +91,6 @@ def navbar():
         top='0px',
         z_index='1000',
         align='center',
-        padding_y=Size.SMALL.value,
-        padding_x=Size.LARGE.value,
+        padding_y=Size.DEFAULT.value,
+        padding_x=Size.DEFAULT.value,
     )

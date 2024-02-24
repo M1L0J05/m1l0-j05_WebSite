@@ -16,51 +16,49 @@ with open('assets/data/about_me.json') as f:
 def mobile_view() -> rx.Component:
     return rx.vstack(
         rx.image(
-            src='/images/img_web_1.png',
+            src='/images/about_me/img_web_1.png',
         ),
         rx.text(
             data['text_1'],
-            text_align='justify',
-            color=Colors.CONTENT.value,
         ),
 
         quote(
             f'"{data["quote_1"]}"', 
             as_='em',
             text_align='center',
-            size='6',
+            size=Spacing.BIG.value,
             weight='bold',
         ),
         
         rx.image(
-            src='/images/img_web_3.png',
+            src='/images/about_me/img_web_3.png',
         ),
+
         rx.text(
             data['text_2'],
-            text_align='justify',
-            color=Colors.CONTENT.value,
         ),
 
         quote(
             f'"{data["quote_2"]}"', 
             as_='em',
             text_align='center',
-            size='6',
+            size=Spacing.BIG.value,
             weight='bold',
         ),
 
         rx.image(
-            src='/images/img_web_2.png',
+            src='/images/about_me/img_web_2.png',
         ),
+
         rx.text(
             data['text_3'],
-            text_align='justify',
-            color=Colors.CONTENT.value,
         ),
 
         display=['flex', 'flex', 'flex', 'none', 'none', 'none'],
-        spacing='5',
-        padding=Size.SMALL.value,
+        spacing=Spacing.MEDIUM.value,
+        padding=Size.DEFAULT.value,
+        align='center',
+        justify='center'
     )
 
 
@@ -69,23 +67,22 @@ def normal_view() -> rx.Component:
         rx.hstack(
             rx.text(
                 data['text_1'],
-                text_align='justify',
-                color=Colors.CONTENT.value,
                 margin='auto',
                 padding=Size.DEFAULT.value,
             ),
             rx.image(
-                src='/images/img_web_1.png',
+                src='/images/about_me/img_web_1.png',
                 max_width='395px'
             ),
         ),
 
         rx.spacer(),
+
         quote(
             f'"{data["quote_1"]}"', 
             as_='em',
             text_align='center',
-            size='6',
+            size=Spacing.VERY_BIG.value,
             weight='bold',
         ),
         rx.spacer(),
@@ -93,46 +90,44 @@ def normal_view() -> rx.Component:
         rx.hstack(
             rx.image(
                 max_height='395px',
-                src='/images/img_web_3.png',
+                src='/images/about_me/img_web_3.png',
             ),
             rx.text(
                 data['text_2'],
-                text_align='justify',
-                color=Colors.CONTENT.value,
                 margin='auto',
                 padding=Size.DEFAULT.value,
             ),
-
         ),
 
         rx.spacer(),
+
         quote(
             f'"{data["quote_2"]}"', 
             as_='em',
             text_align='center',
-            size='6',
+            size=Spacing.VERY_BIG.value,
             weight='bold',
         ),
+        
         rx.spacer(),
 
         rx.hstack(
             rx.text(
                 data['text_3'],
-                text_align='justify',
-                color=Colors.CONTENT.value,
                 margin='auto',
                 padding=Size.DEFAULT.value,
             ),
             rx.image(
                 max_height='395px',
-                src='/images/img_web_2.png',
+                src='/images/about_me/img_web_2.png',
             ),
         ),
 
         display=['none', 'none','none','flex','flex', 'flex'],
-        spacing='3',
+        spacing=Spacing.MEDIUM.value,
         justify='center',
         align='center',
+        font_size='1.25em',
     )
 
 

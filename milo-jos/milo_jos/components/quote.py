@@ -14,6 +14,7 @@ def quote (quote: str='', size='5', *args, **kwargs) -> rx.Component:
             quote,
             font_family=Fonts.HEADING.value,
             size=size,
+            color=Colors.PRIMARY.value,
             *args,
             **kwargs,
         ),

@@ -6,7 +6,6 @@ from milo_jos.styles.colors import Colors
 from milo_jos.styles.fonts import Fonts, FontWeight
 
 
-
 #Variables
 texto1 = 'Soy'
 texto2 = ' Emilio José'
@@ -16,43 +15,45 @@ texto3 = ', entusiasta y apasionado por la tecnología, programación,  diseño 
 def index() -> rx.Component:
     return rx.fragment(
         rx.vstack(
-            rx.vstack(
-                rx.avatar(
-                    src='/images/milo_jos.png',
-                    min_height='512px',
-                    width='auto',
-                    border_width='3px',
-                    border_color=Colors.PRIMARY.value,
-                    radius='full'
-                ),
-                rx.spacer(),
+            rx.avatar(
+                src='/images/index/milo_jos.png',
+                min_height='512px',
+                width='auto',
+                border_width='3px',
+                border_color=Colors.PRIMARY.value,
+                radius='full',
+                margin_y=Size.DEFAULT.value
+            ),
+            rx.spacer(),
+
+            rx.box(
                 rx.vstack(
-                    rx.text('Bienvenid@s'),
-                    rx.text('a mi'),
-                    rx.text('WebSite'),
+                    rx.text('Bienvenidos', color=Colors.PRIMARY.value),
+                    rx.text('a mi', color=Colors.PRIMARY.value),
+                    rx.text('WebSite', color=Colors.PRIMARY.value),
                     color=Colors.PRIMARY.value,
-                    font_size=Size.BIG.value,
-                    margin_y=Size.DEFAULT.value,
-                    display=['flex', 'flex', 'none', 'none', 'none', 'none'],
-                    justify='center',
                     align='center',
+                    display=['flex', 'flex', 'none', 'none', 'none', 'none'],
                 ),
                 rx.text(
-                    'Bienvenid@s a mi WebSite', 
+                    'Bienvenidos a mi WebSite', 
                     color=Colors.PRIMARY.value,
-                    font_size=Size.VERY_BIG.value,
-                    margin_y=Size.DEFAULT.value,
                     display=['none', 'none','flex','flex','flex', 'flex'],
                 ),
 
                 font_family =  Fonts.HEADING.value,
                 font_weight =  FontWeight.BOLD.value,
-                justify='center',
+                color=Colors.PRIMARY.value,
+                font_size=Size.VERY_BIG.value,
+                margin_bottom=Size.SMALL.value,
                 align='center',
+                justify='center',
             ),
+
             rx.divider(
                 background_color=Colors.ACCENT.value,
             ),
+
             rx.vstack(
                 rx.text(
                     texto1,
@@ -64,13 +65,13 @@ def index() -> rx.Component:
                     texto3,
                     
                     color=Colors.CONTENT.value,
-                    font_size='1.3em',
-                    text_align = 'justify',
-                    text_justify = 'inter-word'
+                    font_size='1.25em',
+                    text_align =['center', 'justify'],
                 ),
                 margin_y=Size.VERY_BIG.value,
 
             ),
+            
             rx.divider(
                 background_color=Colors.ACCENT.value
             ),

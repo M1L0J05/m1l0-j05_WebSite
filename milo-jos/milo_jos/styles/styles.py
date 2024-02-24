@@ -6,8 +6,9 @@ from milo_jos.styles.fonts import Fonts, FontWeight
 from milo_jos.styles.colors import Colors
 
 # Constants
-MIN_WIDTH = '15em !important' # 240px
-MAX_WIDTH = '75em !important' # 1200px 
+MIN_WIDTH = '15em' # 240px
+MID_WIDTH = '40em' # 720px
+MAX_WIDTH = '75em' # 1200px 
 
 
 # External style sheets
@@ -20,18 +21,28 @@ STYLE_SHEETS = [
 
 # Sizes
 class Size(Enum):
-	ZERO = '0px !important'
-	MICRO = '0.1em !important'
-	VERY_SMALL = '0.3em !important'
-	SMALL = '0.5em !important'
-	MEDIUM = '0.8em !important'
-	DEFAULT = '1em !important'
-	LARGE = '1.5em !important'
-	BIG = '2em !important'
-	MEDIUM_BIG = '2.5em !important'
-	VERY_BIG = '3em !important'
-	EXTRA_BIG = '4em !important'
+	ZERO = '0px'
+	MICRO_SMALL = '0.25em'
+	VERY_SMALL = '0.5em'
+	SMALL = '0.75em'
+	DEFAULT = '1em'
+	MEDIUM = '1.5em'
+	LARGE = '2em'
+	BIG = '2.5em'
+	VERY_BIG = '3em'
+	EXTRA_BIG = '4em'
 
+class Spacing(Enum):
+	ZERO = '0'
+	MICRO_SMALL = '1'
+	VERY_SMALL = "2"
+	SMALL = '3'
+	DEFAULT = '4' #16PX / 1em
+	MEDIUM = '5'
+	LARGE = '6'
+	BIG = '7'
+	VERY_BIG ='8'
+	EXTRA_BIG = '9'
 
 # Base styles.
 BASE_STYLES = {
@@ -39,7 +50,7 @@ BASE_STYLES = {
 	'font_weight' : FontWeight.DEFAULT.value,
 	'color' : Colors.PRIMARY.value,
 	'background_color' : 'black',
-	'background_image' : "url(/images/circuit-board.svg)", 
+	'background_image' : "url(/images/root/circuit-board.svg)", 
 	
 	rx.link : {
 		'text_decoration' : 'None',
@@ -49,25 +60,19 @@ BASE_STYLES = {
 		}
 	},
 
-
-	rx.card : {
-		#'width' : '100%,',
-		#'variant' : 'outline',
-		'padding' : Size.DEFAULT.value,
-		'background_color' : Colors.BODY_BACKGROUND.value,
+	rx.text : {
 		'color' : Colors.CONTENT.value,
-		'border' : f'1px solid {Colors.BACKGROUND.value}',
-	},
+		'text_align' : 'justify',
+	}
 }
-
 
 CUSTOM_BOX_STYLES = {
 	'color' : Colors.ACCENT.value,
-	'border' : '1px  solid #335DB8',
+	'border' : f'1px  solid {Colors.PRIMARY.value}',
 	'border_radius' : Size.SMALL.value,
 	'_hover' : {
 		'color': Colors.CONTENT.value,
-		'border' : '0.1em solid #4EA0ED',
+		'border' : f'0.1em solid {Colors.SECONDARY.value}',
 		'cursor' : 'pointer',
 	},
 }

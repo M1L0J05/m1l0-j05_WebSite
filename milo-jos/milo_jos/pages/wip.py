@@ -14,7 +14,7 @@ def wip() -> rx.Component:
         rx.vstack(
             rx.vstack(
                 rx.avatar(
-                    src='/images/wip.svg',
+                    src='/images/temp/wip.svg',
                     min_height='512px',
                     width='auto',
                     border_width='3px',

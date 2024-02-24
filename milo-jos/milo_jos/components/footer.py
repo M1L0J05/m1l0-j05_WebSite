@@ -1,6 +1,6 @@
 import reflex as rx
 
-from milo_jos.styles.styles import Size, Colors
+from milo_jos.styles.styles import Size, Colors, Spacing
 from milo_jos.styles.fonts import FontWeight
 from datetime import datetime
 
@@ -12,11 +12,12 @@ def footer() -> rx.Component:
         rx.link(
             rx.text(
                 class_name='devicon-github-original',
-                font_size=Size.MEDIUM_BIG.value,
+                font_size=Size.BIG.value,
+                color=Colors.PRIMARY.value,
             ),
             href='https://github.com/M1L0J05/m1l0-j05_WebSite',
             is_external=True,
-            padding=Size.MICRO.value,
+            padding=Size.MICRO_SMALL.value,
             color=Colors.PRIMARY.value,
         ), 
         
@@ -46,10 +47,13 @@ def footer() -> rx.Component:
             color=Colors.SECONDARY.value, 
         ),
 
+        spacing=Spacing.MICRO_SMALL.value,
         color=Colors.CONTENT.value,
-        font_size=Size.MEDIUM.value,
+        font_size=Size.SMALL.value,
         padding=Size.DEFAULT.value,
         align='center',
         justify='center',
-        margin='auto',
+        margin_x='auto',
+        margin_y=Size.DEFAULT.value,
+
     )

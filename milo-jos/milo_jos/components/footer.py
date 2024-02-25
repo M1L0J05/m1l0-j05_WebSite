@@ -28,7 +28,7 @@ def footer() -> rx.Component:
                 color=Colors.ACCENT.value,
                 as_='span'   
             ),
-            'V1.'
+            'v1.2'
         ),
 
         rx.text(

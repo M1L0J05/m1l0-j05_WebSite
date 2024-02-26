@@ -1,19 +1,41 @@
 import json
 import reflex as rx
 
-
 from milo_jos.components import quote
 from milo_jos.templates import template
 from milo_jos.styles.styles import *
 from milo_jos.styles.colors import Colors
-
 
 # Abrimos el archivo JSON con los datos de los proyectos
 with open('assets/data/projects.json') as f:
     json_data = json.load(f)  # Cargamos los datos del archivo JSON
 
 
+def code_project(code: rx.Component) -> rx.Component:
+    return code
+
 def card_proyecto(proyecto: dict):
+    if proyecto['url']:
+        code_proj = rx.link(
+            rx.text(
+                class_name='devicon-github-original',
+                font_size=Size.LARGE.value,
+                color=Colors.ACCENT.value,
+                text_align='center'
+            ),
+            href='https://github.com/M1L0J05/m1l0-j05_WebSite',
+            is_external=True,
+            margin=Size.ZERO.value,
+            padding=Size.ZERO.value,
+        ) 
+    else: 
+        code_proj = rx.icon(
+            tag='file-lock-2',
+            color=Colors.ACCENT.value,
+            size=25,
+            margin='auto',
+        )
+    
     return rx.card(
         rx.inset(
             rx.image(
@@ -78,9 +100,21 @@ def card_proyecto(proyecto: dict):
                 color=Colors.ACCENT.value,
                 text_align='center',
             ),
+
             align='center',
             justify='center'
         ),
+
+        rx.text(
+            '- Código -',
+            color=Colors.SECONDARY.value,
+            text_align='center',
+            font_size=Size.MEDIUM.value,
+            margin_y=Size.MICRO_SMALL.value,
+        ),
+
+        code_project(code=code_proj),
+
 
         max_width=MID_WIDTH,
         background_color='transparent',

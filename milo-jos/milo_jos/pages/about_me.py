@@ -16,7 +16,7 @@ with open('assets/data/about_me.json') as f:
 def mobile_view() -> rx.Component:
     return rx.vstack(
         rx.image(
-            src='/images/about_me/img_web_1.png',
+            src='/images/about_me/img_web_1.webp',
         ),
         rx.text(
             data['text_1'],
@@ -31,7 +31,7 @@ def mobile_view() -> rx.Component:
         ),
         
         rx.image(
-            src='/images/about_me/img_web_3.png',
+            src='/images/about_me/img_web_3.webp',
         ),
 
         rx.text(
@@ -47,7 +47,7 @@ def mobile_view() -> rx.Component:
         ),
 
         rx.image(
-            src='/images/about_me/img_web_2.png',
+            src='/images/about_me/img_web_2.webp',
         ),
 
         rx.text(
@@ -71,7 +71,7 @@ def normal_view() -> rx.Component:
                 padding=Size.DEFAULT.value,
             ),
             rx.image(
-                src='/images/about_me/img_web_1.png',
+                src='/images/about_me/img_web_1.webp',
                 max_width='395px'
             ),
         ),
@@ -90,7 +90,7 @@ def normal_view() -> rx.Component:
         rx.hstack(
             rx.image(
                 max_height='395px',
-                src='/images/about_me/img_web_3.png',
+                src='/images/about_me/img_web_3.webp',
             ),
             rx.text(
                 data['text_2'],
@@ -119,7 +119,7 @@ def normal_view() -> rx.Component:
             ),
             rx.image(
                 max_height='395px',
-                src='/images/about_me/img_web_2.png',
+                src='/images/about_me/img_web_2.webp',
             ),
         ),
 

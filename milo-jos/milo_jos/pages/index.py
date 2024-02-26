@@ -16,7 +16,7 @@ def index() -> rx.Component:
     return rx.fragment(
         rx.vstack(
             rx.avatar(
-                src='/images/index/milo_jos.png',
+                src='/images/index/milo_jos.webp',
                 min_height='512px',
                 width='auto',
                 border_width='3px',

@@ -1,0 +1,33 @@
+# Archivos y directorios generados automáticamente
+__pycache__/
+*.pyc
+*.pyo
+
+# Directorios de entorno virtual (por ejemplo, virtualenv, venv)
+venv/
+env/
+.venv/
+
+# Archivos y directorios de dependencias
+node_modules/
+*.log
+
+# Archivos y directorios específicos del IDE
+.vscode/
+.idea/
+
+# Otros archivos y directorios generados automáticamente
+.DS_Store
+
+# Archivos de configuración de Docker y Docker Compose
+Dockerfile
+Caddy.Dockerfile
+compose.yaml
+compose.*.yaml
+
+# Archivos y directorios específicos del proyecto
+.web/
+.git/
+.env
+labs/
+public/

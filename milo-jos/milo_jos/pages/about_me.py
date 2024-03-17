@@ -7,11 +7,13 @@ from milo_jos.styles.colors import Colors
 from milo_jos.styles.fonts import Fonts, FontWeight
 from milo_jos.components import quote
 
-
-#Variables
-with open('assets/data/about_me.json') as f:
-    data = json.load(f)
-
+data = {
+    "quote_1" : "Exploré calles y forje caminos que marcarían mi trayectoria hasta el día de hoy.",
+    "quote_2" : "Autodidacta en constante evolución, navengando entre recursos y agradecido por cada paso del viaje.",
+    "text_1" : "Nací en Linares (Jaén) un soleado día del mes de marzo de 1981. Pasé mi infancia y adolescencia explorando las calles de esa pequeña pero gran ciudad hasta los 18 años. Después, comencé mi viaje por la vida y el trabajo. Me aventuré primero en Cáceres, luego en Córdoba, donde pasé 6 años, durante los cuales estuve 6 meses en Rajlovac (Sarajevo). Terminada esa etapa, regresé a Jaén por un tiempo, donde estuve en Baeza y Bailén. Más tarde, volví a marchar y finalmente encontré mi hogar en el vibrante Bilbao, en Bizkaia, donde actualmente resido.",
+    "text_2" : "Por diversos motivos y experiencias de vida, solo completé los estudios obligatorios. Me lancé al mundo laboral, dedicándome a servir y proteger dentro y fuera de mi país. Este camino me llevó a seguir sirviendo y protegiendo, haciendo del honor mi divisa. Me especialicé en la obtención y elaboración de información, uniéndome a un equipo excepcional de personas abnegadas y luchadoras. En esta especialidad y conforme avanzaban las tecnologías tuve la suerte de empezar a formar parte de un equipo pequeño en el que nuestra labor se centra en el mantenimiento informático y sistemas, OSINT e I+D+i. Aquí creamos, adaptamos, implementamos y mantenemos diversas herramientas que facilitan las labores del trabajo diario. Es un ambiente dinámico donde la colaboración, la creatividad y la amistad son fundamentales.",
+    "text_3" : "A lo largo de mi trayectoria, he sido 100% autodidacta. He consumido una amplia variedad de recursos, incluyendo videos, cursos en línea y todo tipo de conocimientos al alcance de mi mano. Esto me ha llevado a adquirir experiencia avanzada en lenguajes de programción, especialmente Python, diseño web y en menor medida en tecnologías de sistemas y microservicios. En la sección de proyectos, podrás ver todo lo que he logrado crear, comenzando desde cero, sin experiencia y conocimientos teóricos previos. Por último, quiero expresar mi más sincero agradecimiento por tomarte el tiempo de conocer mi pequeña historia."
+}
 
 def mobile_view() -> rx.Component:
     return rx.vstack(

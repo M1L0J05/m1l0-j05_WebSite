@@ -17,6 +17,7 @@ from milo_jos.styles import (
     HEADING_STYLE,
     LABEL_STYLE,
     SECTION_PADDING,
+    SECTION_REVEAL,
     CONTAINER_MAX_WIDTH,
 )
 from milo_jos.utils.constants import (
@@ -93,7 +94,7 @@ def contact_section() -> rx.Component:
             rx.heading(
                 "Contacto",
                 **HEADING_STYLE,
-                size="8",
+                font_size=["1.75rem", "2rem", "2.25rem"],
                 as_="h1",
             ),
             # Badge de disponibilidad
@@ -102,10 +103,9 @@ def contact_section() -> rx.Component:
             rx.heading(
                 "¿Tienes un proyecto en mente?",
                 font_family=FontFamily.HEADING,
-                font_size=FontSize.H2,
+                font_size=["1.25rem", "1.5rem", "1.75rem"],
                 font_weight=FontWeight.BOLD,
                 color=Color.TEXT_PRIMARY,
-                size="6",
                 as_="h2",
             ),
             # Subtítulo
@@ -137,4 +137,5 @@ def contact_section() -> rx.Component:
         as_="section",
         width="100%",
         **SECTION_PADDING,
+        **SECTION_REVEAL,
     )

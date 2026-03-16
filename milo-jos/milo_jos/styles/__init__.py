@@ -20,6 +20,7 @@ from .styles import (
     LABEL_STYLE,
     MONO_STYLE,
     SECTION_PADDING,
+    SECTION_REVEAL,
     SUBHEADING_STYLE,
 )
 
@@ -43,6 +44,7 @@ __all__: list[str] = [
     "LABEL_STYLE",
     "MONO_STYLE",
     "SECTION_PADDING",
+    "SECTION_REVEAL",
     "SUBHEADING_STYLE",
     # animations
     "Animation",

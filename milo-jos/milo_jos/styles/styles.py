@@ -1,78 +1,127 @@
-from enum import Enum
+"""Estilos base — BASE_STYLE, glassmorphism y breakpoints.
 
-import reflex as rx
+Define el diccionario de estilos globales que se pasa a rx.App(style=...)
+y helpers reutilizables para glassmorphism y responsive.
+"""
 
-from milo_jos.styles.fonts import Fonts, FontWeight
-from milo_jos.styles.colors import Colors
-
-# Constants
-MIN_WIDTH = '15em' # 240px
-MID_WIDTH = '40em' # 720px
-MAX_WIDTH = '75em' # 1200px 
+from .colors import Color, GlassBg
+from .fonts import FontFamily, FontSize, FontWeight
 
 
-# External style sheets
-STYLE_SHEETS = [
-	'https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap',
-	'https://fonts.googleapis.com/css2?family=Comfortaa:wght@100;300;500;700&display=swap',
-	'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css',
-]
+# =============================================================================
+# Breakpoints (min-width)
+# =============================================================================
+
+class Breakpoint:
+    """Breakpoints del sistema responsive (mobile-first).
+
+    | Nombre     | Rango             | Columnas grid |
+    |------------|-------------------|---------------|
+    | MOBILE     | 320px – 767px     | 1             |
+    | TABLET     | 768px – 1023px    | 2             |
+    | DESKTOP    | 1024px – 1439px   | 3-4           |
+    | DESKTOP_XL | 1440px+           | 4             |
+    """
+
+    MOBILE: str = "320px"
+    TABLET: str = "768px"
+    DESKTOP: str = "1024px"
+    DESKTOP_XL: str = "1440px"
 
 
-# Sizes
-class Size(Enum):
-	ZERO = '0px'
-	MICRO_SMALL = '0.25em'
-	VERY_SMALL = '0.5em'
-	SMALL = '0.75em'
-	DEFAULT = '1em'
-	MEDIUM = '1.5em'
-	LARGE = '2em'
-	BIG = '2.5em'
-	VERY_BIG = '3em'
-	EXTRA_BIG = '4em'
+# =============================================================================
+# Estilos globales (rx.App style dict)
+# =============================================================================
 
-class Spacing(Enum):
-	ZERO = '0'
-	MICRO_SMALL = '1'
-	VERY_SMALL = "2"
-	SMALL = '3'
-	DEFAULT = '4' #16PX / 1em
-	MEDIUM = '5'
-	LARGE = '6'
-	BIG = '7'
-	VERY_BIG ='8'
-	EXTRA_BIG = '9'
-
-# Base styles.
-BASE_STYLES = {
-	'font_family' : Fonts.DEFAULT.value,
-	'font_weight' : FontWeight.DEFAULT.value,
-	'color' : Colors.PRIMARY.value,
-	'background_color' : 'black',
-	'background_image' : "url(/images/root/circuit-board.svg)", 
-	
-	rx.link : {
-		'text_decoration' : 'None',
-		'_hover' : {
-			'text_decoration' : 'None',
-			'color' : Colors.CONTENT.value,
-		}
-	},
-
-	rx.text : {
-		'color' : Colors.CONTENT.value,
-		'text_align' : 'justify',
-	}
+BASE_STYLE: dict = {
+    "font_family": FontFamily.BODY,
+    "font_size": FontSize.BODY,
+    "font_weight": FontWeight.REGULAR,
+    "color": Color.TEXT_PRIMARY,
+    "background_color": Color.BG_BASE,
+    "line_height": "1.6",
+    # Reset suave
+    "margin": "0",
+    "padding": "0",
+    "box_sizing": "border-box",
+    # Scroll suave para anclas SPA
+    "scroll_behavior": "smooth",
+    # Selección de texto
+    "::selection": {
+        "background_color": GlassBg.ACCENT_CYAN_30,
+        "color": Color.TEXT_PRIMARY,
+    },
 }
 
-CUSTOM_BOX_STYLES = {
-	'color' : Colors.ACCENT.value,
-	'border' : f'1px  solid {Colors.PRIMARY.value}',
-	'border_radius' : Size.SMALL.value,
-	'_hover' : {
-		'color': Colors.CONTENT.value,
-		'border' : f'0.1em solid {Colors.SECONDARY.value}',
-		'cursor' : 'pointer',
-	},
+
+# =============================================================================
+# Glassmorphism helpers (dicts listos para spread en props)
+# =============================================================================
+
+GLASS_CARD: dict = {
+    "background": GlassBg.CARD,
+    "backdrop_filter": "blur(12px)",
+    "border": f"1px solid {GlassBg.BORDER}",
+    "border_radius": "12px",
 }
+"""Card base con glassmorphism."""
+
+GLASS_CARD_HOVER: dict = {
+    "box_shadow": f"0 0 20px {GlassBg.GLOW_CYAN}",
+    "transform": "translateY(-4px)",
+    "transition": "box-shadow 0.3s ease, transform 0.3s ease",
+}
+"""Hover state para cards (glow + lift)."""
+
+GLASS_NAVBAR: dict = {
+    "background": GlassBg.CARD,
+    "backdrop_filter": "blur(16px)",
+    "border_bottom": f"1px solid {GlassBg.BORDER}",
+}
+"""Navbar con glassmorphism más intenso."""
+
+
+# =============================================================================
+# Mixins de estilo reutilizables
+# =============================================================================
+
+HEADING_STYLE: dict = {
+    "font_family": FontFamily.HEADING,
+    "font_weight": FontWeight.BOLD,
+    "color": Color.TEXT_PRIMARY,
+    "line_height": "1.2",
+}
+"""Estilo base para títulos (H1-H2)."""
+
+SUBHEADING_STYLE: dict = {
+    "font_family": FontFamily.HEADING,
+    "font_weight": FontWeight.MEDIUM,
+    "color": Color.TEXT_PRIMARY,
+    "line_height": "1.3",
+}
+"""Estilo base para subtítulos (H3-H4)."""
+
+MONO_STYLE: dict = {
+    "font_family": FontFamily.MONO,
+    "font_weight": FontWeight.REGULAR,
+}
+"""Estilo base para texto monospace (tags, código, labels)."""
+
+LABEL_STYLE: dict = {
+    "font_family": FontFamily.MONO,
+    "font_size": FontSize.MICRO,
+    "font_weight": FontWeight.REGULAR,
+    "text_transform": "uppercase",
+    "letter_spacing": "0.05em",
+    "color": Color.TEXT_SECONDARY,
+}
+"""Estilo para labels y metadatos pequeños."""
+
+SECTION_PADDING: dict = {
+    "padding_x": ["1.5rem", "2rem", "4rem", "6rem"],
+    "padding_y": "5rem",
+}
+"""Padding responsive para secciones principales."""
+
+CONTAINER_MAX_WIDTH: str = "1200px"
+"""Ancho máximo del contenedor principal."""

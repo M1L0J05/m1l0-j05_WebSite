@@ -12,9 +12,9 @@ import reflex as rx
 from milo_jos.styles import Color, FontFamily, FontSize, FontWeight
 
 # Duración base de la animación typewriter por línea de comando (segundos).
-_TYPEWRITER_DURATION: float = 1.5
+_TYPEWRITER_DURATION: float = 0.7
 # Delay inicial antes de que comience la primera animación (segundos).
-_TYPEWRITER_INITIAL_DELAY: float = 0.5
+_TYPEWRITER_INITIAL_DELAY: float = 0.2
 
 
 def _terminal_line(
@@ -49,10 +49,10 @@ def _terminal_line(
             line_height="1.8",
             white_space="pre-wrap",
             opacity="0",
-            animation=f"reveal 0.3s ease-out {output_delay}s both",
+            animation=f"reveal 0.2s ease-out {output_delay}s both",
         )
 
-    # Líneas de comando: efecto typewriter con cursor parpadeante
+    # Líneas de comando: efecto typewriter sin cursor parpadeante
     children = [
         rx.text.span(
             f"{prompt} ",
@@ -73,8 +73,7 @@ def _terminal_line(
         white_space="nowrap",
         overflow="hidden",
         max_width="100%",
-        border_right=f"2px solid {Color.ACCENT_CYAN}",
-        animation=f"typewriter {_TYPEWRITER_DURATION}s steps(30, end) {delay}s both, blink 0.75s step-end {delay}s infinite",
+        animation=f"typewriter {_TYPEWRITER_DURATION}s steps(30, end) {delay}s both",
     )
 
 
@@ -154,7 +153,7 @@ def terminal_block(
                 )
             )
             # Avanzar el delay: duración de escritura + pequeña pausa
-            current_delay += _TYPEWRITER_DURATION + 0.3
+            current_delay += _TYPEWRITER_DURATION + 0.15
         if "output" in line:
             body_lines.append(
                 _terminal_line(
@@ -164,7 +163,7 @@ def terminal_block(
                 )
             )
             # Pequeña pausa tras el output antes del siguiente comando
-            current_delay += 0.4
+            current_delay += 0.2
 
     body = rx.vstack(
         *body_lines,

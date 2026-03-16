@@ -1,0 +1,46 @@
+[
+  {
+    "id": "minerva",
+    "name": "Minerva",
+    "description": "Sistema de gestión documental inteligente con IA. Permite organizar, buscar y analizar documentos de forma automatizada mediante modelos de lenguaje.",
+    "status": "EN DESARROLLO",
+    "tech_stack": ["Python", "FastAPI", "PostgreSQL", "Docker", "LangChain"],
+    "image": "/images/projects/minerva.webp",
+    "href": "/proyectos/minerva",
+    "repo_url": null,
+    "demo_url": null
+  },
+  {
+    "id": "ares",
+    "name": "Ares",
+    "description": "Plataforma de monitorización y alertas para infraestructura. Centraliza métricas, logs y notificaciones en tiempo real para mantener los servicios bajo control.",
+    "status": "PRODUCCIÓN",
+    "tech_stack": ["Python", "Prometheus", "Grafana", "Docker", "Kubernetes"],
+    "image": "/images/projects/ares.webp",
+    "href": "/proyectos/ares",
+    "repo_url": null,
+    "demo_url": null
+  },
+  {
+    "id": "proxmox-lab",
+    "name": "Proxmox Lab",
+    "description": "Laboratorio de virtualización homelab para pruebas de infraestructura. Entorno aislado donde experimentar con despliegues, redes y automatización.",
+    "status": "LAB",
+    "tech_stack": ["Proxmox", "Terraform", "Ansible", "Linux"],
+    "image": "/images/projects/proxmox-lab.webp",
+    "href": "/proyectos/proxmox-lab",
+    "repo_url": null,
+    "demo_url": null
+  },
+  {
+    "id": "milo-jos-es",
+    "name": "milo-jos.es",
+    "description": "Este mismo portfolio web, construido con Reflex. Diseñado para mostrar proyectos, habilidades y trayectoria profesional de forma clara y directa.",
+    "status": "EN DESARROLLO",
+    "tech_stack": ["Python", "Reflex", "Docker", "Caddy"],
+    "image": "/images/projects/milo-jos-es.webp",
+    "href": "/proyectos/milo-jos-es",
+    "repo_url": null,
+    "demo_url": "https://milo-jos.es"
+  }
+]

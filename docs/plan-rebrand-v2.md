@@ -5,7 +5,8 @@
 | Aspecto | Decisión |
 |---|---|
 | Navegación | Híbrida: SPA con anclas (#hero, #stack, etc.) + rutas `/proyectos/:id` |
-| Framework | Reescritura directa sobre Reflex 0.8.6 |
+| Framework | Proyecto nuevo desde cero sobre Reflex 0.8.6 |
+| Código v1.2 | Archivado en `milo-jos-v1/` como referencia (se elimina tras launch) |
 | Fuentes | Self-hosted (woff2) por GDPR compliance |
 | Hero background | CSS-only con gradientes animados |
 | Imágenes proyectos | Placeholders iniciales |
@@ -18,36 +19,38 @@
 
 ## Fase 0 — Setup y Limpieza (2-3 días)
 
-### Limpieza Vercel / GitHub Actions
+### Limpieza Vercel / GitHub Actions — COMPLETADO
 
-1. **Vercel:** Dashboard → proyecto → Settings → Delete Project
-2. **GitHub Actions:** Repo → Settings → Actions → Disable Actions
-3. **Integración:** GitHub Settings → Applications → Revocar acceso Vercel
+1. ~~**Vercel:** Dashboard → proyecto → Settings → Delete Project~~
+2. ~~**GitHub Actions:** Repo → Settings → Actions → Disable Actions~~
+3. ~~**Integración:** GitHub Settings → Applications → Revocar acceso Vercel~~
 
 ### Setup del repositorio
 
-| Tarea | Prioridad |
-|---|---|
-| Crear rama `feat/rebrand-v2` | Alta |
-| `requirements.txt` → `reflex==0.8.6` | Alta |
-| Reescribir `rxconfig.py` (compatible 0.8.6, importar version) | Alta |
-| Crear `milo_jos/version.py` → `__version__ = "2.0.0"` | Alta |
-| Crear `.env.example` con variables documentadas | Media |
-| Crear estructura `tests/` con `conftest.py` | Media |
-| Eliminar `public/` y `front_build.sh` | Baja |
+| Tarea | Prioridad | Estado |
+|---|---|---|
+| Archivar código v1 en `milo-jos-v1/` | Alta | Completado |
+| Crear scaffolding `milo-jos/` nuevo (Reflex 0.8.6) | Alta | Completado |
+| `requirements.txt` → `reflex==0.8.6` | Alta | Completado |
+| `rxconfig.py` compatible 0.8.6, importar version | Alta | Completado |
+| `version.py` → `__version__ = "2.0.0"` | Alta | Completado |
+| `.env.example` con variables documentadas | Media | Completado |
+| Crear estructura `tests/` con `conftest.py` | Media | Completado |
 
 ---
 
 ## Fase 1 — Identidad Visual (2-3 días)
 
-| Tarea | Archivo |
-|---|---|
-| Reescribir paleta de colores (10 tokens) | `styles/colors.py` |
-| Reescribir tipografía (3 familias, escala rem) | `styles/fonts.py` |
-| Descargar fuentes woff2 | `assets/fonts/` |
-| Reescribir estilos base + glassmorphism + breakpoints | `styles/styles.py` |
-| Generar favicon "M1" (16, 32, 180, 512) | `assets/favicon.ico` |
-| Crear OG image placeholder (1200x630) | `assets/images/root/og-image.png` |
+| Tarea | Archivo | Estado |
+|---|---|---|
+| Reescribir paleta de colores (10 tokens) | `styles/colors.py` | Completado |
+| Reescribir tipografía (3 familias, escala rem) | `styles/fonts.py` | Completado |
+| Descargar fuentes woff2 + fonts.css | `assets/fonts/` | Completado |
+| Reescribir estilos base + glassmorphism + breakpoints | `styles/styles.py` | Completado |
+| Implementar animaciones CSS (keyframes) | `styles/animations.py` | Completado |
+| Implementar constantes de app | `utils/constants.py` | Completado |
+| Generar favicon "M1" (16, 32, 180, 512) | `assets/favicon.ico` | Pendiente |
+| Crear OG image placeholder (1200x630) | `assets/images/root/og-image.png` | Pendiente |
 
 > Detalle completo de tokens en [identity-system.md](identity-system.md)
 
@@ -55,16 +58,16 @@
 
 ## Fase 2 — Componentes UI (3-4 días)
 
-| Componente | Archivo | Descripción |
-|---|---|---|
-| Navbar | `components/navbar.py` | Sticky, glassmorphism, wordmark, drawer mobile |
-| Footer | `components/footer.py` | Minimalista, version dinámica desde `version.py` |
-| Badge | `components/badge.py` | Tags tecnología, monospace, cian |
-| Button | `components/button.py` | Primario (CTA) + Secundario (outline) |
-| Card | `components/card.py` | Glassmorphism, hover glow + translateY(-4px) |
-| Timeline | `components/timeline.py` | Línea vertical, dots con glow pulsante |
-| Terminal | `components/terminal.py` | Bloque terminal, typewriter CSS |
-| Template | `templates/template.py` | Layout base SPA: navbar + secciones + footer |
+| Componente | Archivo | Descripción | Estado |
+|---|---|---|---|
+| Navbar | `components/navbar.py` | Sticky, glassmorphism, wordmark, drawer mobile | Completado |
+| Footer | `components/footer.py` | Minimalista, version dinámica desde `version.py` | Completado |
+| Badge | `components/badge.py` | Tags tecnología, monospace, cian | Completado |
+| Button | `components/button.py` | Primario (CTA) + Secundario (outline) | Completado |
+| Card | `components/card.py` | Glassmorphism, hover glow + translateY(-4px) | Completado |
+| Timeline | `components/timeline.py` | Línea vertical, dots con glow pulsante | Completado |
+| Terminal | `components/terminal.py` | Bloque terminal, typewriter CSS | Completado |
+| Template | `templates/template.py` | Layout base SPA: navbar + secciones + footer | Completado |
 
 **Eliminar:** `components/quote.py` (reemplazado por el nuevo diseño)
 

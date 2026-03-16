@@ -21,41 +21,72 @@ milo-jos.es/
 ## Estructura de archivos
 
 ```
-milo_jos/
-├── version.py                  # __version__ = "2.0.0"
-├── milo_jos.py                 # Punto de entrada, registro de rutas
+milo-jos/                           # Directorio del proyecto v2.0
+├── rxconfig.py                     # Configuración Reflex
+├── requirements.txt                # Dependencias Python
+├── .env.example                    # Variables de entorno (plantilla)
+├── .gitignore
+├── .dockerignore
+├── Dockerfile                      # Multi-stage, ARM64
+├── Caddyfile                       # Reverse proxy + HTTPS
+├── compose.yaml                    # Orquestación Docker
+├── deploy.sh                       # Script de deploy manual
 │
-├── pages/
-│   ├── index.py                # SPA principal (ensambla secciones)
-│   └── project_detail.py       # Ruta dinámica /proyectos/:id
+├── assets/
+│   ├── fonts/                      # Fuentes self-hosted (woff2)
+│   ├── images/
+│   │   ├── root/                   # Favicon, OG image
+│   │   └── projects/               # Screenshots proyectos
+│   └── data/
+│       └── projects.json           # Datos de proyectos
 │
-├── sections/                   # Bloques visuales de la SPA
-│   ├── hero.py
-│   ├── stack.py
-│   ├── projects.py
-│   ├── about_me.py
-│   └── contact.py
+├── milo_jos/                       # Paquete Python principal
+│   ├── __init__.py
+│   ├── version.py                  # __version__ = "2.0.0"
+│   ├── milo_jos.py                 # Punto de entrada, registro de rutas
+│   │
+│   ├── pages/
+│   │   ├── __init__.py
+│   │   ├── index.py                # SPA principal (ensambla secciones)
+│   │   └── project_detail.py       # Ruta dinámica /proyectos/:id
+│   │
+│   ├── sections/                   # Bloques visuales de la SPA
+│   │   ├── __init__.py
+│   │   ├── hero.py
+│   │   ├── stack.py
+│   │   ├── projects.py
+│   │   ├── about_me.py
+│   │   └── contact.py
+│   │
+│   ├── components/                 # Componentes UI reutilizables
+│   │   ├── __init__.py
+│   │   ├── navbar.py
+│   │   ├── footer.py
+│   │   ├── badge.py
+│   │   ├── button.py
+│   │   ├── card.py
+│   │   ├── timeline.py
+│   │   └── terminal.py
+│   │
+│   ├── templates/
+│   │   ├── __init__.py
+│   │   └── template.py             # Layout base: navbar + contenido + footer
+│   │
+│   ├── styles/
+│   │   ├── __init__.py
+│   │   ├── colors.py               # 10 tokens de color
+│   │   ├── fonts.py                # 3 familias, escala rem
+│   │   ├── styles.py               # BASE_STYLES, glassmorphism, breakpoints
+│   │   └── animations.py           # Keyframes CSS (blink, typewriter, glow)
+│   │
+│   └── utils/
+│       ├── __init__.py
+│       └── constants.py            # Constantes de la aplicación
 │
-├── components/                 # Componentes UI reutilizables
-│   ├── navbar.py
-│   ├── footer.py
-│   ├── badge.py
-│   ├── button.py
-│   ├── card.py
-│   ├── timeline.py
-│   └── terminal.py
-│
-├── templates/
-│   └── template.py             # Layout base: navbar + contenido + footer
-│
-├── styles/
-│   ├── colors.py               # 10 tokens de color
-│   ├── fonts.py                # 3 familias, escala rem
-│   ├── styles.py               # BASE_STYLES, glassmorphism, breakpoints
-│   └── animations.py           # Keyframes CSS (blink, typewriter, glow)
-│
-└── utils/
-    └── constants.py            # Constantes de la aplicación
+└── tests/
+    ├── conftest.py
+    ├── test_sections.py
+    └── test_data.py
 ```
 
 **Criterio de separación:**

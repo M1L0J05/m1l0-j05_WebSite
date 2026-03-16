@@ -1,0 +1,84 @@
+"""Constantes de la aplicación milo-jos.es.
+
+Centraliza valores estáticos reutilizados en múltiples módulos:
+URLs, textos de identidad, metadatos SEO, links sociales.
+"""
+
+from milo_jos.version import __version__
+
+# =============================================================================
+# Identidad / Marca
+# =============================================================================
+
+SITE_NAME: str = "M1L0_J05"
+SITE_DOMAIN: str = "milo-jos.es"
+SITE_URL: str = f"https://{SITE_DOMAIN}"
+
+# Variantes del wordmark (ver docs/identity-system.md)
+WORDMARK_HERO: str = ">_ M1L0_J05"
+WORDMARK_NAVBAR: str = "M1L0_J05"
+WORDMARK_FOOTER: str = "m1l0_j05"
+WORDMARK_SHORT: str = "M1L0"
+
+# Taglines
+TAGLINE_HERO: str = "Building systems. Automating the rest."
+TAGLINE_SEO: str = (
+    "Full-Stack Engineer · DevOps · Infrastructure Architect — Sevilla, ES"
+)
+TAGLINE_BIO: str = (
+    "I build the backend, the infra, and the pipelines that run on top."
+)
+
+# UVP (Unique Value Proposition)
+UVP: str = (
+    "Diseño y construyo sistemas completos — desde la capa de aplicación "
+    "hasta la orquestación de infraestructura. Python, contenedores, "
+    "Kubernetes y automatización de pipelines."
+)
+
+# =============================================================================
+# SEO / Meta
+# =============================================================================
+
+META_TITLE: str = f"{SITE_NAME} — {TAGLINE_SEO}"
+META_DESCRIPTION: str = UVP
+META_OG_IMAGE: str = f"{SITE_URL}/images/root/og-image.png"
+
+# =============================================================================
+# Links sociales
+# =============================================================================
+
+GITHUB_URL: str = "https://github.com/m1l0-j05"
+LINKEDIN_URL: str = "https://linkedin.com/in/emilio-jose-morillas"
+GITEA_URL: str = "https://gitea.milo-jos.es"
+
+SOCIAL_LINKS: list[dict[str, str]] = [
+    {"name": "GitHub", "url": GITHUB_URL, "icon": "github"},
+    {"name": "LinkedIn", "url": LINKEDIN_URL, "icon": "linkedin"},
+    {"name": "Gitea", "url": GITEA_URL, "icon": "git-branch"},
+]
+
+# =============================================================================
+# Contacto
+# =============================================================================
+
+EMAIL: str = "contacto@milo-jos.es"
+AVAILABILITY_BADGE: str = "Abierto a proyectos freelance"
+
+# =============================================================================
+# Navegación (anclas SPA)
+# =============================================================================
+
+NAV_ITEMS: list[dict[str, str]] = [
+    {"label": "Stack", "href": "#stack"},
+    {"label": "Proyectos", "href": "#proyectos"},
+    {"label": "Sobre Mí", "href": "#sobre-mi"},
+    {"label": "Contacto", "href": "#contacto"},
+]
+
+# =============================================================================
+# Footer
+# =============================================================================
+
+COPYRIGHT_YEAR_START: int = 2023
+FOOTER_VERSION: str = f"v{__version__}"

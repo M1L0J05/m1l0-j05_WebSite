@@ -56,7 +56,7 @@ def footer() -> rx.Component:
 
     return rx.box(
         rx.vstack(
-            # Links sociales
+            # Links sociales (apilados en móvil, fila en tablet+)
             rx.hstack(
                 *[
                     _social_link(link["name"], link["url"], link["icon"])
@@ -65,6 +65,8 @@ def footer() -> rx.Component:
                 spacing="6",
                 justify="center",
                 flex_wrap="wrap",
+                flex_direction=["column", "row"],
+                align_items="center",
             ),
             # Separador
             rx.divider(
@@ -100,8 +102,8 @@ def footer() -> rx.Component:
             width="100%",
             max_width="1200px",
             margin_x="auto",
-            padding_x="2rem",
-            padding_y="3rem",
+            padding_x=["1.5rem", "2rem"],
+            padding_y=["2rem", "3rem"],
         ),
         width="100%",
         border_top=f"1px solid {Color.BORDER}",

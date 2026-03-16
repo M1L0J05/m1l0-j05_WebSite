@@ -1,1 +1,5 @@
 reflex==0.8.6
+# Pins necesarios: sqlmodel>=0.0.30 y pydantic>=2.11 tienen
+# incompatibilidad con reflex 0.8.6 (PydanticDeprecatedSince211)
+pydantic>=2.10,<2.11
+sqlmodel>=0.0.22,<0.0.30

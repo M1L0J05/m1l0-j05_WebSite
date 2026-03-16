@@ -61,13 +61,50 @@ KEYFRAME_GRADIENT_SHIFT: str = """
 }
 """
 
-# Regla de accesibilidad: desactivar animaciones si el usuario lo prefiere
+KEYFRAME_REVEAL: str = """
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+"""
+"""Keyframe de revelación para secciones al hacer scroll."""
+
+# Fallback de glassmorphism para navegadores sin soporte de backdrop-filter.
+# Define variables CSS que cambian a fondos opacos cuando no hay soporte,
+# evitando que el contenido se vea a través sin desenfoque.
+GLASSMORPHISM_FALLBACK: str = """
+:root {
+    --glass-bg-card: rgba(22, 27, 34, 0.6);
+    --glass-bg-navbar: rgba(22, 27, 34, 0.6);
+    --glass-blur-card: blur(12px);
+    --glass-blur-navbar: blur(16px);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    :root {
+        --glass-bg-card: rgba(22, 27, 34, 0.95);
+        --glass-bg-navbar: rgba(22, 27, 34, 0.95);
+    }
+}
+"""
+
+# Regla de accesibilidad: desactivar animaciones si el usuario lo prefiere.
+# Incluye scroll-behavior para evitar scroll suave no deseado.
 REDUCED_MOTION: str = """
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    html {
+        scroll-behavior: auto !important;
     }
 }
 """
@@ -95,6 +132,9 @@ class Animation:
     GRADIENT: str = "gradient-shift 8s ease infinite"
     """Gradiente animado del hero background."""
 
+    REVEAL: str = "reveal 0.6s ease-out both"
+    """Revelación suave de secciones al cargar."""
+
 
 def get_all_keyframes() -> str:
     """Devuelve todos los keyframes concatenados para inyectar en CSS global.
@@ -109,5 +149,7 @@ def get_all_keyframes() -> str:
         KEYFRAME_FADE_IN_UP,
         KEYFRAME_BOUNCE,
         KEYFRAME_GRADIENT_SHIFT,
+        KEYFRAME_REVEAL,
+        GLASSMORPHISM_FALLBACK,
         REDUCED_MOTION,
     ])

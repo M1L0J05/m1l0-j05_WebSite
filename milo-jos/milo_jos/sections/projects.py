@@ -18,6 +18,7 @@ from milo_jos.styles import (
     FontSize,
     HEADING_STYLE,
     SECTION_PADDING,
+    SECTION_REVEAL,
     CONTAINER_MAX_WIDTH,
 )
 from milo_jos.components import project_card, coming_soon_card
@@ -120,7 +121,7 @@ def projects_section() -> rx.Component:
                     "1fr 1fr",
                     "1fr 1fr",
                 ],
-                gap="1.5rem",
+                gap=["1rem", "1rem", "1.5rem"],
                 width="100%",
                 margin_top="2.5rem",
             ),
@@ -132,4 +133,5 @@ def projects_section() -> rx.Component:
         as_="section",
         width="100%",
         **SECTION_PADDING,
+        **SECTION_REVEAL,
     )

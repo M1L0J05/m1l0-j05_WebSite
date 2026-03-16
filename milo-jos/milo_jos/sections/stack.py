@@ -18,6 +18,7 @@ from milo_jos.styles import (
     HEADING_STYLE,
     SUBHEADING_STYLE,
     SECTION_PADDING,
+    SECTION_REVEAL,
     CONTAINER_MAX_WIDTH,
 )
 from milo_jos.components import badge
@@ -160,4 +161,5 @@ def stack_section() -> rx.Component:
         display="flex",
         justify_content="center",
         **SECTION_PADDING,
+        **SECTION_REVEAL,
     )

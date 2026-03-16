@@ -114,7 +114,7 @@ def _project_detail_view() -> rx.Component:
             rx.heading(
                 ProjectDetailState.project_name,
                 **HEADING_STYLE,
-                font_size=FontSize.H1,
+                font_size=["1.75rem", "2rem", "2.25rem"],
                 as_="h1",
             ),
             rx.cond(

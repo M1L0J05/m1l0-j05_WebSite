@@ -1,7 +1,8 @@
 """Terminal — Bloque de terminal para la hero section.
 
 Simula una ventana de terminal con prompt $ en verde,
-comandos en blanco y output en gris. Efecto typewriter CSS.
+comandos en blanco y output en gris. Efecto typewriter CSS
+con delay incremental por cada línea de comando.
 
 Especificaciones: docs/architecture.md > Componentes UI > Terminal
 """
@@ -10,6 +11,11 @@ import reflex as rx
 
 from milo_jos.styles import Color, FontFamily, FontSize, FontWeight
 
+# Duración base de la animación typewriter por línea de comando (segundos).
+_TYPEWRITER_DURATION: float = 1.5
+# Delay inicial antes de que comience la primera animación (segundos).
+_TYPEWRITER_INITIAL_DELAY: float = 0.5
+
 
 def _terminal_line(
     prompt: str = "$",
@@ -17,19 +23,24 @@ def _terminal_line(
     output: str = "",
     *,
     is_output_only: bool = False,
+    delay: float = 0,
 ) -> rx.Component:
-    """Línea individual del terminal.
+    """Línea individual del terminal con efecto typewriter opcional.
 
     Args:
         prompt: Carácter de prompt (default '$').
         command: Comando a mostrar.
         output: Salida del comando.
         is_output_only: Si True, solo muestra output sin prompt.
+        delay: Retardo en segundos antes de iniciar la animación
+               typewriter. Solo aplica a líneas de comando.
 
     Returns:
         Componente con una línea de terminal.
     """
     if is_output_only:
+        # Líneas de output: aparecen tras el comando con fade-in
+        output_delay = delay
         return rx.text(
             output,
             font_family=FontFamily.MONO,
@@ -37,8 +48,11 @@ def _terminal_line(
             color=Color.TEXT_SECONDARY,
             line_height="1.8",
             white_space="pre-wrap",
+            opacity="0",
+            animation=f"reveal 0.3s ease-out {output_delay}s both",
         )
 
+    # Líneas de comando: efecto typewriter con cursor parpadeante
     children = [
         rx.text.span(
             f"{prompt} ",
@@ -56,7 +70,11 @@ def _terminal_line(
         font_family=FontFamily.MONO,
         font_size=FontSize.SMALL,
         line_height="1.8",
-        white_space="pre-wrap",
+        white_space="nowrap",
+        overflow="hidden",
+        max_width="100%",
+        border_right=f"2px solid {Color.ACCENT_CYAN}",
+        animation=f"typewriter {_TYPEWRITER_DURATION}s steps(30, end) {delay}s both, blink 0.75s step-end {delay}s infinite",
     )
 
 
@@ -65,7 +83,11 @@ def terminal_block(
     *,
     title: str = "terminal",
 ) -> rx.Component:
-    """Bloque de terminal completo con barra de título.
+    """Bloque de terminal completo con barra de título y typewriter.
+
+    Calcula delays incrementales para cada línea de comando,
+    de forma que se animen secuencialmente como si se estuviera
+    escribiendo en una terminal real.
 
     Args:
         lines: Lista de líneas. Cada dict puede tener:
@@ -118,20 +140,31 @@ def terminal_block(
         align_items="center",
     )
 
-    # Cuerpo del terminal
+    # Cuerpo del terminal con delays incrementales
     body_lines: list[rx.Component] = []
+    current_delay: float = _TYPEWRITER_INITIAL_DELAY
+
     for line in lines:
         if "command" in line:
             body_lines.append(
                 _terminal_line(
                     prompt=line.get("prompt", "$"),
                     command=line["command"],
+                    delay=current_delay,
                 )
             )
+            # Avanzar el delay: duración de escritura + pequeña pausa
+            current_delay += _TYPEWRITER_DURATION + 0.3
         if "output" in line:
             body_lines.append(
-                _terminal_line(output=line["output"], is_output_only=True)
+                _terminal_line(
+                    output=line["output"],
+                    is_output_only=True,
+                    delay=current_delay,
+                )
             )
+            # Pequeña pausa tras el output antes del siguiente comando
+            current_delay += 0.4
 
     body = rx.vstack(
         *body_lines,
@@ -148,6 +181,6 @@ def terminal_block(
         border=f"1px solid {Color.BORDER}",
         border_radius="8px",
         width="100%",
-        max_width="600px",
+        max_width=["100%", "100%", "600px"],
         overflow="hidden",
     )

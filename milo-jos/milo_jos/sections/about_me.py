@@ -15,6 +15,7 @@ from milo_jos.styles import (
     FontWeight,
     HEADING_STYLE,
     SECTION_PADDING,
+    SECTION_REVEAL,
     CONTAINER_MAX_WIDTH,
 )
 from milo_jos.utils.constants import TAGLINE_BIO, UVP
@@ -162,7 +163,7 @@ def about_me_section() -> rx.Component:
             rx.heading(
                 "Sobre Mí",
                 **HEADING_STYLE,
-                size="8",
+                font_size=["1.75rem", "2rem", "2.25rem"],
                 as_="h1",
             ),
             # Grid responsivo: 1 col móvil, 2 col desktop
@@ -170,7 +171,7 @@ def about_me_section() -> rx.Component:
                 _bio_column(),
                 _timeline_column(),
                 grid_template_columns=["1fr", "1fr", "1fr 1fr"],
-                gap="3rem",
+                gap=["2rem", "2rem", "3rem"],
                 width="100%",
             ),
             spacing="7",
@@ -183,4 +184,5 @@ def about_me_section() -> rx.Component:
         as_="section",
         width="100%",
         **SECTION_PADDING,
+        **SECTION_REVEAL,
     )

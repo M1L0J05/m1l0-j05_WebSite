@@ -6,6 +6,7 @@ y helpers reutilizables para glassmorphism y responsive.
 
 from .colors import Color, GlassBg
 from .fonts import FontFamily, FontSize, FontWeight
+from .animations import Animation
 
 
 # =============================================================================
@@ -59,12 +60,12 @@ BASE_STYLE: dict = {
 # =============================================================================
 
 GLASS_CARD: dict = {
-    "background": GlassBg.CARD,
-    "backdrop_filter": "blur(12px)",
+    "background": "var(--glass-bg-card)",
+    "backdrop_filter": "var(--glass-blur-card)",
     "border": f"1px solid {GlassBg.BORDER}",
     "border_radius": "12px",
 }
-"""Card base con glassmorphism."""
+"""Card base con glassmorphism. Usa variables CSS con fallback opaco."""
 
 GLASS_CARD_HOVER: dict = {
     "box_shadow": f"0 0 20px {GlassBg.GLOW_CYAN}",
@@ -74,11 +75,11 @@ GLASS_CARD_HOVER: dict = {
 """Hover state para cards (glow + lift)."""
 
 GLASS_NAVBAR: dict = {
-    "background": GlassBg.CARD,
-    "backdrop_filter": "blur(16px)",
+    "background": "var(--glass-bg-navbar)",
+    "backdrop_filter": "var(--glass-blur-navbar)",
     "border_bottom": f"1px solid {GlassBg.BORDER}",
 }
-"""Navbar con glassmorphism más intenso."""
+"""Navbar con glassmorphism más intenso. Usa variables CSS con fallback opaco."""
 
 
 # =============================================================================
@@ -122,6 +123,11 @@ SECTION_PADDING: dict = {
     "padding_y": "5rem",
 }
 """Padding responsive para secciones principales."""
+
+SECTION_REVEAL: dict = {
+    "animation": Animation.REVEAL,
+}
+"""Animación de entrada para secciones al cargar."""
 
 CONTAINER_MAX_WIDTH: str = "1200px"
 """Ancho máximo del contenedor principal."""

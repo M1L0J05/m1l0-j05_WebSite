@@ -37,7 +37,7 @@ _HERO_BG_GRADIENT: str = (
 # Líneas del bloque de terminal
 _TERMINAL_LINES: list[dict] = [
     {"command": "whoami"},
-    {"output": "M1L0_J05 — Full-Stack Engineer & DevOps"},
+    {"output": "m1l0_j05 — Full-Stack Engineer & DevOps"},
     {"command": "cat mission.txt"},
     {"output": "Building systems. Automating the rest."},
 ]
@@ -57,7 +57,7 @@ def _wordmark() -> rx.Component:
     """
     # Separar prefijo ">_ " del nombre "M1L0_J05"
     prefix = ">_ "
-    name = WORDMARK_HERO.replace(">_ ", "")
+    name = WORDMARK_HERO.replace(">_", "")
 
     return rx.heading(
         rx.text.span(
@@ -69,13 +69,13 @@ def _wordmark() -> rx.Component:
             color=Color.ACCENT_CYAN,
         ),
         rx.text.span(
-            "█",
+            "|",
             color=Color.ACCENT_CYAN,
             animation=Animation.CURSOR_BLINK,
         ),
         font_family=FontFamily.MONO,
         font_weight=FontWeight.EXTRA_BOLD,
-        font_size=["2rem", "2.5rem", "3rem", "3.5rem"],
+        font_size=["2.5rem", "2.5rem", "3.5rem", "4.5rem"],
         line_height="1.2",
         as_="h1",
     )
@@ -92,7 +92,7 @@ def _tagline() -> rx.Component:
     return rx.text(
         TAGLINE_HERO,
         font_family=FontFamily.HEADING,
-        font_size=FontSize.H2,
+        font_size=["1.25rem", "1.5rem", "2rem", "2.25rem"],
         font_weight=FontWeight.MEDIUM,
         color=Color.TEXT_PRIMARY,
         line_height="1.4",
@@ -127,7 +127,7 @@ def _scroll_indicator() -> rx.Component:
     return rx.box(
         rx.icon(
             "chevron-down",
-            size=28,
+            size=36,
             color=Color.TEXT_SECONDARY,
         ),
         animation=Animation.SCROLL_BOUNCE,
@@ -162,7 +162,7 @@ def hero_section() -> rx.Component:
             ),
             _cta_buttons(),
             _scroll_indicator(),
-            spacing="6",
+            spacing="8",
             align="center",
             justify="center",
             max_width=CONTAINER_MAX_WIDTH,
@@ -175,7 +175,8 @@ def hero_section() -> rx.Component:
         justify_content="center",
         min_height="100vh",
         width="100%",
-        background=_HERO_BG_GRADIENT,
-        background_size="200% 200%",
-        animation=Animation.GRADIENT,
+        # Patrón circuit-board en mosaico (encima) + gradiente estático (debajo)
+        background_image=f"url('/images/root/circuit-board.svg'), {_HERO_BG_GRADIENT}",
+        background_size="250px 250px, 100% 100%",
+        background_repeat="repeat, no-repeat",
     )

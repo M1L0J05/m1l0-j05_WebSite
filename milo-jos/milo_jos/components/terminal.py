@@ -180,6 +180,6 @@ def terminal_block(
         border=f"1px solid {Color.BORDER}",
         border_radius="8px",
         width="100%",
-        max_width=["100%", "100%", "600px"],
+        max_width=["100%", "100%", "780px"],
         overflow="hidden",
     )

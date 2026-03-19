@@ -124,15 +124,22 @@ def _scroll_indicator() -> rx.Component:
     Returns:
         Componente con icono de flecha animada.
     """
-    return rx.box(
-        rx.icon(
-            "chevron-down",
-            size=36,
-            color=Color.TEXT_SECONDARY,
+    return rx.link(
+        rx.box(
+            rx.icon(
+                "chevron-down",
+                size=36,
+                color=Color.TEXT_SECONDARY,
+            ),
+            animation=Animation.SCROLL_BOUNCE,
+            padding_top="3rem",
+            opacity="0.7",
+            _hover={"opacity": "1"},
+            transition="opacity 0.2s ease",
+            cursor="pointer",
         ),
-        animation=Animation.SCROLL_BOUNCE,
-        padding_top="3rem",
-        opacity="0.7",
+        href="#stack",
+        underline="none",
     )
 
 

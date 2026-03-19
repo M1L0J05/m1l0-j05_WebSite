@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
-    ".claude/user-instructions.md",
-    ".claude/instructions/project-rules.instructions.md"
+    ".claude/rules/project-rules.md"
   ]
 }

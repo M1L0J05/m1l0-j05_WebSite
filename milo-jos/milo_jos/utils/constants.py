@@ -15,15 +15,15 @@ SITE_DOMAIN: str = "milo-jos.es"
 SITE_URL: str = f"https://{SITE_DOMAIN}"
 
 # Variantes del wordmark (ver docs/identity-system.md)
-WORDMARK_HERO: str = ">_ M1L0_J05"
-WORDMARK_NAVBAR: str = "M1L0_J05"
+WORDMARK_HERO: str = ">_m1l0_j05"
+WORDMARK_NAVBAR: str = "m1l0_j05"
 WORDMARK_FOOTER: str = "m1l0_j05"
-WORDMARK_SHORT: str = "M1L0"
+WORDMARK_SHORT: str = "m1l0"
 
 # Taglines
 TAGLINE_HERO: str = "Building systems. Automating the rest."
 TAGLINE_SEO: str = (
-    "Full-Stack Engineer · DevOps · Infrastructure Architect — Sevilla, ES"
+    "Full-Stack Engineer · DevOps · Infrastructure Architect — Linares (J), ES"
 )
 TAGLINE_BIO: str = (
     "I build the backend, the infra, and the pipelines that run on top."
@@ -73,7 +73,6 @@ NAV_ITEMS: list[dict[str, str]] = [
     {"label": "Stack", "href": "#stack"},
     {"label": "Proyectos", "href": "#proyectos"},
     {"label": "Sobre Mí", "href": "#sobre-mi"},
-    {"label": "Contacto", "href": "#contacto"},
 ]
 
 # =============================================================================

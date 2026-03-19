@@ -230,6 +230,7 @@ def navbar() -> rx.Component:
                 margin_x="auto",
                 padding_x="2rem",
             ),
+            width="100%",
         ),
         # Mobile y tablet
         rx.mobile_and_tablet(
@@ -241,6 +242,7 @@ def navbar() -> rx.Component:
                 width="100%",
                 padding_x="1.5rem",
             ),
+            width="100%",
         ),
         # Estilos del contenedor
         position="sticky",

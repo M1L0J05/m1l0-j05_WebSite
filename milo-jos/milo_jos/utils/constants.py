@@ -10,7 +10,7 @@ from milo_jos.version import __version__
 # Identidad / Marca
 # =============================================================================
 
-SITE_NAME: str = "M1L0_J05"
+SITE_NAME: str = "m1l0_j05"
 SITE_DOMAIN: str = "milo-jos.es"
 SITE_URL: str = f"https://{SITE_DOMAIN}"
 

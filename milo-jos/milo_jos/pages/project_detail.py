@@ -43,9 +43,8 @@ class ProjectDetailState(rx.State):
     @rx.var
     def project(self) -> dict:
         """Devuelve el diccionario del proyecto actual o vacío si no existe."""
-        # router.page.params deprecado en 0.8.1 pero funcional en 0.8.6
-        # TODO: migrar cuando router.url exponga parámetros de ruta
-        project_id: str = self.router.page.params.get("id", "")
+        # _page es la API interna que usa Reflex para rutas dinámicas
+        project_id: str = self.router._page.params.get("id", "")
         return _PROJECTS_BY_ID.get(project_id, {})
 
     @rx.var

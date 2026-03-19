@@ -5,9 +5,12 @@ incluyendo fuentes self-hosted y hojas de estilo globales.
 """
 
 import reflex as rx
+from reflex.plugins.sitemap import SitemapPlugin
 
 config = rx.Config(
     app_name="milo_jos",
+    # Plugins declarados explícitamente para evitar warnings de Reflex
+    plugins=[SitemapPlugin()],
     # --- Frontend ---
     # Hojas de estilo: fuentes self-hosted + estilos globales
     # Los paths son relativos a assets/

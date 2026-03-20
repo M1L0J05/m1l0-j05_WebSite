@@ -56,7 +56,7 @@ def _wordmark() -> rx.Component:
             _hover={"opacity": "0.8"},
             transition="opacity 0.2s ease",
         ),
-        href="#hero",
+        href="/",
         underline="none",
     )
 

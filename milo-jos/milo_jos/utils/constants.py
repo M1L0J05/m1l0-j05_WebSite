@@ -49,13 +49,9 @@ META_OG_IMAGE: str = f"{SITE_URL}/images/root/og-image.png"
 # =============================================================================
 
 GITHUB_URL: str = "https://github.com/m1l0-j05"
-LINKEDIN_URL: str = "https://linkedin.com/in/emilio-jose-morillas"
-GITEA_URL: str = "https://gitea.milo-jos.es"
 
 SOCIAL_LINKS: list[dict[str, str]] = [
     {"name": "GitHub", "url": GITHUB_URL, "icon": "github"},
-    {"name": "LinkedIn", "url": LINKEDIN_URL, "icon": "linkedin"},
-    {"name": "Gitea", "url": GITEA_URL, "icon": "git-branch"},
 ]
 
 # =============================================================================

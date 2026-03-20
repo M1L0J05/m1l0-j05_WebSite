@@ -165,6 +165,8 @@ def about_me_section() -> rx.Component:
                 **HEADING_STYLE,
                 font_size=["1.75rem", "2rem", "2.25rem"],
                 as_="h1",
+                width="100%",
+                text_align="center",
             ),
             # Grid responsivo: 1 col móvil, 2 col desktop
             rx.grid(

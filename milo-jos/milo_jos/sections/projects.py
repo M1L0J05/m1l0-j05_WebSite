@@ -103,6 +103,8 @@ def projects_section() -> rx.Component:
                 **HEADING_STYLE,
                 font_size=FontSize.H1,
                 as_="h2",
+                width="100%",
+                text_align="center",
             ),
             # Subtítulo descriptivo
             rx.text(
@@ -111,6 +113,8 @@ def projects_section() -> rx.Component:
                 font_family=FontFamily.HEADING,
                 font_size=FontSize.BODY,
                 margin_top="0.75rem",
+                width="100%",
+                text_align="center",
             ),
             # Grid responsive de tarjetas
             rx.grid(
@@ -125,15 +129,13 @@ def projects_section() -> rx.Component:
                 width="100%",
                 margin_top="2.5rem",
             ),
-            max_width="1400px",
+            max_width=CONTAINER_MAX_WIDTH,
             width="100%",
             margin_x="auto",
         ),
         id="proyectos",
         as_="section",
         width="100%",
-        # Padding reducido en desktop para dar más espacio al grid de 3 columnas
-        padding_x=["1.5rem", "2rem", "3rem", "3rem"],
-        padding_y=SECTION_PADDING["padding_y"],
+        **SECTION_PADDING,
         **SECTION_REVEAL,
     )

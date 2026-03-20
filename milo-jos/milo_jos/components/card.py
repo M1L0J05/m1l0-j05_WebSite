@@ -100,8 +100,10 @@ def project_card(
                 spacing="1",
                 padding="1.5rem",
                 width="100%",
+                height="100%",
             ),
             width="100%",
+            height="100%",
             **GLASS_CARD,
             _hover={
                 "box_shadow": f"0 0 20px {GlassBg.GLOW_CYAN}",
@@ -113,6 +115,8 @@ def project_card(
         href=href,
         underline="none",
         width="100%",
+        height="100%",
+        display="flex",
     )
 
 

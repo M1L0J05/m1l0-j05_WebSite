@@ -119,12 +119,12 @@ def projects_section() -> rx.Component:
             # Grid responsive de tarjetas
             rx.grid(
                 *cards,
-                grid_template_columns=[
-                    "1fr",
-                    "1fr 1fr",
-                    "1fr 1fr",
-                    "repeat(3, 1fr)",
-                ],
+                grid_template_columns=rx.breakpoints(
+                    initial="1fr",
+                    sm="1fr",
+                    md="1fr 1fr",
+                    lg="repeat(3, 1fr)",
+                ),
                 gap=["1rem", "1.25rem", "1.5rem"],
                 width="100%",
                 margin_top="2.5rem",

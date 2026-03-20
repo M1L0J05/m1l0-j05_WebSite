@@ -129,5 +129,5 @@ SECTION_REVEAL: dict = {
 }
 """Animación de entrada para secciones al cargar."""
 
-CONTAINER_MAX_WIDTH: str = "1200px"
+CONTAINER_MAX_WIDTH: str = "1400px"
 """Ancho máximo del contenedor principal."""

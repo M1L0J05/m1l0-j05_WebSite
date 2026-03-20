@@ -18,29 +18,6 @@ from milo_jos.utils import (
     WORDMARK_FOOTER,
 )
 
-
-def _social_link(name: str, url: str, icon: str) -> rx.Component:
-    """Enlace social individual con icono Lucide."""
-    return rx.link(
-        rx.hstack(
-            rx.icon(icon, size=16, color=Color.TEXT_SECONDARY),
-            rx.text(
-                name,
-                font_family=FontFamily.BODY,
-                font_size=FontSize.SMALL,
-                color=Color.TEXT_SECONDARY,
-                _hover={"color": Color.ACCENT_CYAN},
-                transition="color 0.2s ease",
-            ),
-            spacing="2",
-            align_items="center",
-        ),
-        href=url,
-        is_external=True,
-        underline="none",
-    )
-
-
 def footer() -> rx.Component:
     """Pie de página con links sociales, copyright y versión.
 
@@ -56,35 +33,24 @@ def footer() -> rx.Component:
 
     return rx.box(
         rx.vstack(
-            # Links sociales (apilados en móvil, fila en tablet+)
-            rx.hstack(
-                *[
-                    _social_link(link["name"], link["url"], link["icon"])
-                    for link in SOCIAL_LINKS
-                ],
-                spacing="6",
-                justify="center",
-                flex_wrap="wrap",
-                flex_direction=["column", "row"],
-                align_items="center",
-            ),
-            # Separador
-            rx.divider(
-                border_color=Color.BORDER,
-                width="100%",
-                max_width="200px",
-            ),
-            # Copyright + versión
+
+            # Copyright + easter egg + versión
             rx.hstack(
                 rx.text(
                     f"\u00a9 {year_range} ",
+                    font_family=FontFamily.MONO,
+                    font_size=FontSize.MICRO,
+                    color=Color.TEXT_SECONDARY,
+                ),
+                rx.text(
+                    rx.text.span("I "),
                     rx.text.span(
-                        WORDMARK_FOOTER,
-                        font_family=FontFamily.MONO,
-                        font_weight=FontWeight.REGULAR,
-                        color=Color.ACCENT_CYAN,
+                        "LoVe",
+                        color="red",
+                        font_weight=FontWeight.BOLD,
                     ),
-                    font_family=FontFamily.BODY,
+                    rx.text.span(" Linares!"),
+                    font_family=FontFamily.MONO,
                     font_size=FontSize.MICRO,
                     color=Color.TEXT_SECONDARY,
                 ),

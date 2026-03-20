@@ -95,7 +95,7 @@ def _layer_card(
             rx.flex(
                 *[badge(tech) for tech in techs],
                 wrap="wrap",
-                gap="2",
+                gap="0.75rem",
             ),
             spacing="4",
             align="start",

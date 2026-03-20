@@ -40,8 +40,8 @@ def badge(
         background=bg,
         border=f"1px solid {border_color}",
         border_radius="6px",
-        padding_x="0.625rem",
-        padding_y="0.25rem",
+        padding_x="0.75rem",
+        padding_y="0.375rem",
         white_space="nowrap",
         _hover={
             "border_color": GlassBg.ACCENT_CYAN_60,

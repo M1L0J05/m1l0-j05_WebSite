@@ -53,9 +53,8 @@ def project_card(
                 rx.image(
                     src=image_src,
                     width="100%",
-                    height="180px",
                     object_fit="cover",
-                    border_radius="8px 8px 0 0",
+                    border_radius="8px",
                     alt=f"Screenshot de {name}",
                 ),
                 width="100%",

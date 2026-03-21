@@ -50,9 +50,11 @@ META_OG_IMAGE: str = f"{SITE_URL}/images/root/og-image.png"
 # =============================================================================
 
 GITHUB_URL: str = "https://github.com/m1l0-j05"
+TELEGRAM_URL: str = "https://t.me/M1L0J05"
 
 SOCIAL_LINKS: list[dict[str, str]] = [
     {"name": "GitHub", "url": GITHUB_URL, "icon": "github"},
+    {"name": "Telegram (@M1L0J05)", "url": TELEGRAM_URL, "icon": "send"},
 ]
 
 # =============================================================================

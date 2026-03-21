@@ -480,7 +480,7 @@ def _tech_stack_section() -> rx.Component:
         rx.box(
             # Título del panel
             rx.text(
-                "Stack Tecnológico",
+                "La Fuerza Bajo La Interfaz",
                 font_family=FontFamily.HEADING,
                 font_size=FontSize.H2,
                 font_weight=FontWeight.BOLD,

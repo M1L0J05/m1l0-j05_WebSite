@@ -6,8 +6,8 @@ con la posición del scroll en el carrusel horizontal.
 
 import reflex as rx
 
-# Número total de tarjetas en el carrusel (7 proyectos + 1 coming soon).
-TOTAL_CARDS: int = 8
+# Número total de tarjetas en el carrusel (7 proyectos).
+TOTAL_CARDS: int = 7
 
 # ID del contenedor HTML del carrusel para scroll programático.
 _CAROUSEL_CONTAINER_ID: str = "projects-carousel"

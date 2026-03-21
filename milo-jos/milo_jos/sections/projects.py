@@ -96,14 +96,14 @@ def _card_wrapper(card: rx.Component) -> rx.Component:
         card,
         # Mismos breakpoints que stack_section: initial/sm=1col, md=2col, lg=3col
         min_width=rx.breakpoints(
-            initial="85vw",
-            sm="85vw",
+            initial="100%",
+            sm="100%",
             md="calc(50% - 0.75rem)",
             lg="calc(33.333% - 1rem)",
         ),
         max_width=rx.breakpoints(
-            initial="85vw",
-            sm="85vw",
+            initial="100%",
+            sm="100%",
             md="calc(50% - 0.75rem)",
             lg="calc(33.333% - 1rem)",
         ),
@@ -268,7 +268,6 @@ def projects_section() -> rx.Component:
     cards: list[rx.Component] = [
         _card_wrapper(_build_project_card(project)) for project in projects
     ]
-    cards.append(_card_wrapper(coming_soon_card()))
 
     return rx.box(
         rx.box(
@@ -304,14 +303,10 @@ def projects_section() -> rx.Component:
                     scroll_snap_type="x mandatory",
                     # Padding vertical para que hover shadow no se recorte
                     padding_y="0.5rem",
-                    padding_x="0.25rem",
                     width="100%",
                     id=_CAROUSEL_ID,
                     class_name="carousel-scroll-container",
                 ),
-                # Gradientes de borde como hint visual de contenido oculto
-                _edge_fade("left"),
-                _edge_fade("right"),
                 position="relative",
                 width="100%",
                 margin_top="2.5rem",

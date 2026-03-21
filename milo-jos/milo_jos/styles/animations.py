@@ -109,6 +109,18 @@ REDUCED_MOTION: str = """
 }
 """
 
+# CSS para ocultar la scrollbar nativa del carrusel de proyectos.
+# Usa class_name="carousel-scroll-container" en el contenedor flex.
+CAROUSEL_SCROLLBAR_HIDE: str = """
+.carousel-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.carousel-scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+"""
+
 # --- Shortcuts para aplicar en props de estilo ---
 
 class Animation:
@@ -152,4 +164,5 @@ def get_all_keyframes() -> str:
         KEYFRAME_REVEAL,
         GLASSMORPHISM_FALLBACK,
         REDUCED_MOTION,
+        CAROUSEL_SCROLLBAR_HIDE,
     ])

@@ -1,8 +1,8 @@
-"""Sección Proyectos — Grid de tarjetas con glassmorphism.
+"""Sección Proyectos — Carrusel horizontal con scroll-snap.
 
 Carga la lista de proyectos desde el fichero JSON estático en tiempo
-de build y genera un grid responsive de ``project_card`` junto con
-una tarjeta placeholder ``coming_soon_card`` al final.
+de build y genera un carrusel horizontal de ``project_card`` con
+flechas de navegación y dots indicadores de posición.
 
 Especificaciones: docs/architecture.md > Secciones > Proyectos
 """
@@ -22,11 +22,15 @@ from milo_jos.styles import (
     CONTAINER_MAX_WIDTH,
 )
 from milo_jos.components import project_card, coming_soon_card
+from milo_jos.states.carousel_state import CarouselState, TOTAL_CARDS
 
 # Ruta absoluta al JSON de proyectos (relativa al fichero actual).
 _PROJECTS_JSON_PATH: Path = (
     Path(__file__).resolve().parents[2] / "assets" / "data" / "projects.json"
 )
+
+# ID del contenedor HTML del carrusel para scroll programático.
+_CAROUSEL_ID: str = "projects-carousel"
 
 
 def load_projects() -> list[dict]:
@@ -76,12 +80,183 @@ def _build_project_card(project: dict) -> rx.Component:
     return project_card(**kwargs)
 
 
+def _card_wrapper(card: rx.Component) -> rx.Component:
+    """Envuelve una tarjeta en un contenedor de ancho fijo para el carrusel.
+
+    Aplica ``scroll_snap_align`` para que el scroll se detenga en cada
+    tarjeta y ``flex_shrink="0"`` para evitar que flex comprima el ancho.
+
+    Args:
+        card: Componente de tarjeta (project_card o coming_soon_card).
+
+    Returns:
+        Componente wrapper con dimensiones responsive.
+    """
+    return rx.box(
+        card,
+        # Mismos breakpoints que stack_section: initial/sm=1col, md=2col, lg=3col
+        min_width=rx.breakpoints(
+            initial="85vw",
+            sm="85vw",
+            md="calc(50% - 0.75rem)",
+            lg="calc(33.333% - 1rem)",
+        ),
+        max_width=rx.breakpoints(
+            initial="85vw",
+            sm="85vw",
+            md="calc(50% - 0.75rem)",
+            lg="calc(33.333% - 1rem)",
+        ),
+        scroll_snap_align="start",
+        flex_shrink="0",
+        height="auto",
+    )
+
+
+def _nav_button(direction: str) -> rx.Component:
+    """Botón de navegación lateral del carrusel.
+
+    Posicionado absolutamente al lado izquierdo o derecho del carrusel.
+    Oculto en mobile donde el swipe táctil es suficiente.
+
+    Args:
+        direction: ``"left"`` o ``"right"``.
+
+    Returns:
+        Componente icon_button estilizado.
+    """
+    is_left = direction == "left"
+
+    return rx.icon_button(
+        rx.icon("chevron_left" if is_left else "chevron_right", size=20),
+        variant="ghost",
+        size="3",
+        on_click=CarouselState.scroll_prev if is_left else CarouselState.scroll_next,
+        position="absolute",
+        top="50%",
+        transform="translateY(-50%)",
+        left="-2.5rem" if is_left else "auto",
+        right="auto" if is_left else "-2.5rem",
+        z_index="10",
+        background="transparent",
+        color=Color.ACCENT_GREEN,
+        border="none",
+        border_radius="50%",
+        width="2.5rem",
+        height="2.5rem",
+        cursor="pointer",
+        _hover={
+            "color": Color.ACCENT_GREEN,
+            "opacity": "0.7",
+            "transform": "translateY(-50%) scale(1.2)",
+        },
+        transition="all 0.3s ease",
+        # Visible a partir de md (768px), igual que los breakpoints del grid
+        display=rx.breakpoints(initial="none", sm="none", md="flex"),
+    )
+
+
+def _edge_fade(side: str) -> rx.Component:
+    """Gradiente sutil en el borde del carrusel como hint visual.
+
+    Indica al usuario que hay más contenido en esa dirección.
+    No intercepta eventos del ratón.
+
+    Args:
+        side: ``"left"`` o ``"right"``.
+
+    Returns:
+        Componente box con gradiente posicionado absolutamente.
+    """
+    is_left = side == "left"
+    # Gradiente de BG_BASE hacia transparente en la dirección del contenido
+    gradient_dir = "to right" if is_left else "to left"
+
+    return rx.box(
+        position="absolute",
+        left="0" if is_left else "auto",
+        right="auto" if is_left else "0",
+        top="0",
+        height="100%",
+        width="2rem",
+        background=f"linear-gradient({gradient_dir}, {Color.BG_BASE}, transparent)",
+        pointer_events="none",
+        z_index="5",
+    )
+
+
+def _dot_indicator(index: int) -> rx.Component:
+    """Punto indicador individual del carrusel.
+
+    Cambia de tamaño y color según si corresponde al índice activo.
+    Clicable para navegar directamente a ese card.
+
+    Args:
+        index: Índice del card que representa este dot.
+
+    Returns:
+        Componente box circular estilizado con estado reactivo.
+    """
+    return rx.box(
+        width=rx.cond(
+            CarouselState.active_index == index,
+            "10px",
+            "8px",
+        ),
+        height=rx.cond(
+            CarouselState.active_index == index,
+            "10px",
+            "8px",
+        ),
+        border_radius="50%",
+        background=rx.cond(
+            CarouselState.active_index == index,
+            Color.ACCENT_CYAN,
+            Color.TEXT_SECONDARY,
+        ),
+        opacity=rx.cond(
+            CarouselState.active_index == index,
+            "1",
+            "0.4",
+        ),
+        cursor="pointer",
+        transition="all 0.3s ease",
+        _hover={
+            "opacity": "0.8",
+            "transform": "scale(1.2)",
+        },
+        on_click=CarouselState.scroll_to(index),
+    )
+
+
+def _dot_indicators(total: int) -> rx.Component:
+    """Fila de dots indicadores de posición del carrusel.
+
+    Cada dot es clicable y navega al card correspondiente.
+    Se sincronizan con el estado activo vía CarouselState.
+
+    Args:
+        total: Número total de cards en el carrusel.
+
+    Returns:
+        Componente hstack con los dots centrados.
+    """
+    return rx.hstack(
+        *[_dot_indicator(i) for i in range(total)],
+        spacing="2",
+        justify="center",
+        align="center",
+        margin_top="1.5rem",
+        width="100%",
+    )
+
+
 def projects_section() -> rx.Component:
     """Sección principal de proyectos del portfolio.
 
-    Renderiza un encabezado con título y subtítulo, seguido de un grid
-    responsive con las tarjetas de todos los proyectos cargados desde
-    JSON y una tarjeta ``coming_soon_card`` al final.
+    Renderiza un encabezado con título y subtítulo, seguido de un
+    carrusel horizontal con scroll-snap, flechas de navegación y
+    dots indicadores de posición.
 
     Returns:
         Componente de sección listo para componer en la página.
@@ -89,11 +264,11 @@ def projects_section() -> rx.Component:
     # Cargar proyectos en tiempo de build
     projects = load_projects()
 
-    # Construir lista de tarjetas: una por proyecto + coming soon
+    # Construir lista de tarjetas envueltas en wrappers de ancho fijo
     cards: list[rx.Component] = [
-        _build_project_card(project) for project in projects
+        _card_wrapper(_build_project_card(project)) for project in projects
     ]
-    cards.append(coming_soon_card())
+    cards.append(_card_wrapper(coming_soon_card()))
 
     return rx.box(
         rx.box(
@@ -116,19 +291,33 @@ def projects_section() -> rx.Component:
                 width="100%",
                 text_align="center",
             ),
-            # Grid responsive de tarjetas
-            rx.grid(
-                *cards,
-                grid_template_columns=rx.breakpoints(
-                    initial="1fr",
-                    sm="1fr",
-                    md="1fr 1fr",
-                    lg="repeat(3, 1fr)",
+            # Wrapper relativo: flechas posicionadas absolutamente sobre el scroll
+            rx.box(
+                _nav_button("left"),
+                _nav_button("right"),
+                # Contenedor de scroll horizontal con snap
+                rx.flex(
+                    *cards,
+                    direction="row",
+                    gap=["1rem", "1.25rem", "1.5rem"],
+                    overflow_x="auto",
+                    scroll_snap_type="x mandatory",
+                    # Padding vertical para que hover shadow no se recorte
+                    padding_y="0.5rem",
+                    padding_x="0.25rem",
+                    width="100%",
+                    id=_CAROUSEL_ID,
+                    class_name="carousel-scroll-container",
                 ),
-                gap=["1rem", "1.25rem", "1.5rem"],
+                # Gradientes de borde como hint visual de contenido oculto
+                _edge_fade("left"),
+                _edge_fade("right"),
+                position="relative",
                 width="100%",
                 margin_top="2.5rem",
             ),
+            # Dots indicadores de posición
+            _dot_indicators(TOTAL_CARDS),
             max_width=CONTAINER_MAX_WIDTH,
             width="100%",
             margin_x="auto",

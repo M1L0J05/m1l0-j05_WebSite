@@ -29,8 +29,11 @@ def template(content: rx.Component) -> rx.Component:
         Layout completo de la página.
     """
     return rx.box(
-        # Inyección de keyframes CSS globales
-        rx.html(f"<style>{get_all_keyframes()}</style>"),
+        # Favicon y keyframes inyectados en el documento
+        rx.html(
+            f"<link rel='icon' type='image/x-icon' href='/favicon.ico'/>"
+            f"<style>{get_all_keyframes()}</style>"
+        ),
         # Navbar
         navbar(),
         # Contenido principal

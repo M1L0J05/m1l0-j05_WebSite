@@ -23,7 +23,7 @@ WORDMARK_SHORT: str = "m1l0"
 # Taglines
 TAGLINE_HERO: str = "Building systems. Automating the rest."
 TAGLINE_SEO: str = (
-    "Full-Stack Engineer · DevOps · Infrastructure Architect — Linares (J), ES"
+    "Full-Stack Engineer · DevOps · Infrastructure Architect"
 )
 TAGLINE_BIO: str = (
     "I build the backend, the infra, and the pipelines that run on top."
@@ -31,9 +31,10 @@ TAGLINE_BIO: str = (
 
 # UVP (Unique Value Proposition)
 UVP: str = (
-    "Diseño y construyo sistemas completos — desde la capa de aplicación "
-    "hasta la orquestación de infraestructura. Python, contenedores, "
-    "Kubernetes y automatización de pipelines."
+    "Desarrollo Full‑Stack, especializado en backend e infraestructura. "
+    "Diseño y construyo sistemas completos: desde la aplicación hasta la automatización y orquestación de servicios."
+    "Trabajo con Python, contenedores, virtualización y automatización para crear infraestructuras "
+    "sólidas y pipelines eficientes que funcionan en cloud y on‑premise."
 )
 
 # =============================================================================

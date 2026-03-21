@@ -73,7 +73,7 @@ def _nav_link(label: str, href: str) -> rx.Component:
             _hover={"color": Color.ACCENT_CYAN},
             transition="color 0.2s ease",
         ),
-        href=href,
+        href=f'/{href}',
         underline="none",
     )
 
@@ -105,7 +105,7 @@ def _cta_button() -> rx.Component:
             },
             transition="background 0.2s ease",
         ),
-        href="#contacto",
+        href="/#contacto",
         underline="none",
     )
 

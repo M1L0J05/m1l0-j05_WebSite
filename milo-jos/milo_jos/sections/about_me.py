@@ -26,11 +26,29 @@ from milo_jos.components import timeline, timeline_item
 
 _TIMELINE_ITEMS: list[dict] = [
     {
-        "year": "2023",
-        "title": "Inicio en desarrollo web",
+        "year": "2013",
+        "title": "Inicio en equipo OSINT",
         "description": (
             "Primeros proyectos con Python y JavaScript. "
-            "Fundamentos de programación y diseño web."
+            "Fundamentos de programación."
+        ),
+        "is_active": False,
+    },
+    {
+        "year": "20XX",
+        "title": "Inicio en equipo de Obtención",
+        "description": (
+            "Periodo de maduración y crecimiento. "
+            "Inicio del Proyecto Ares."
+        ),
+        "is_active": False,
+    },
+    {
+        "year": "20XX",
+        "title": "Inicio en equipo IT / ID+i",
+        "description": (
+            "Presento Ares y accedo al erquipo. "
+            "Desarrollo de aplicaciones y matenimeinto de infraestructura."
         ),
         "is_active": False,
     },
@@ -38,7 +56,7 @@ _TIMELINE_ITEMS: list[dict] = [
         "year": "2024",
         "title": "Full-Stack & DevOps",
         "description": (
-            "Transición a infraestructura. Docker, Kubernetes, CI/CD. "
+            "Transición a infraestructura. Docker, SysAdmin, CI/CD. "
             "Proyectos propios en producción."
         ),
         "is_active": False,
@@ -47,8 +65,8 @@ _TIMELINE_ITEMS: list[dict] = [
         "year": "2025",
         "title": "Infraestructura & Automatización",
         "description": (
-            "Homelab con Proxmox. Terraform, Ansible. "
-            "Pipelines de automatización."
+            "Transición y puesta en produccion de ecosistema Proxmox. "
+            "Pipelines de automatización y continuo desarrollo de herramientas y aplicaciones."
         ),
         "is_active": False,
     },
@@ -56,8 +74,9 @@ _TIMELINE_ITEMS: list[dict] = [
         "year": "2026",
         "title": "Presente",
         "description": (
-            "Arquitectura de sistemas completos. Consultoría freelance. "
-            "Construcción de milo-jos.es v2.0."
+            "Diseño, desarrollo, mantenimiento y actualización de arquitectura de sistemas completos."
+            "Innovación e inclusión de IA en proyectos. "
+            "Explorando, descubriendo y creando."
         ),
         "is_active": True,
     },
@@ -66,9 +85,8 @@ _TIMELINE_ITEMS: list[dict] = [
 # --- Puntos clave del perfil ---
 
 _KEY_POINTS: list[str] = [
-    "Ingeniero Full-Stack con enfoque en backend e infraestructura",
-    "Basado en Sevilla, España",
-    "Experiencia en entornos cloud y on-premise",
+    "Full-Stack con enfoque en backend e infraestructura",
+    "Experiencia en entornos y despliegues cloud y on-premise",
     "Automatización como filosofía de trabajo",
 ]
 

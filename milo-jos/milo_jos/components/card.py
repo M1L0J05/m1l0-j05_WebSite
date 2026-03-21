@@ -59,6 +59,7 @@ def project_card(
                 ),
                 width="100%",
                 overflow="hidden",
+                margin_bottom="0.5rem"
             )
         )
 

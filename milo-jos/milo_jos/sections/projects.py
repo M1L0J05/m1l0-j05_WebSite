@@ -21,7 +21,7 @@ from milo_jos.styles import (
     SECTION_REVEAL,
     CONTAINER_MAX_WIDTH,
 )
-from milo_jos.components import project_card, coming_soon_card
+from milo_jos.components import project_card
 from milo_jos.states.carousel_state import CarouselState, TOTAL_CARDS
 
 # Ruta absoluta al JSON de proyectos (relativa al fichero actual).
@@ -155,34 +155,6 @@ def _nav_button(direction: str) -> rx.Component:
         display=rx.breakpoints(initial="none", sm="none", md="flex"),
     )
 
-
-def _edge_fade(side: str) -> rx.Component:
-    """Gradiente sutil en el borde del carrusel como hint visual.
-
-    Indica al usuario que hay más contenido en esa dirección.
-    No intercepta eventos del ratón.
-
-    Args:
-        side: ``"left"`` o ``"right"``.
-
-    Returns:
-        Componente box con gradiente posicionado absolutamente.
-    """
-    is_left = side == "left"
-    # Gradiente de BG_BASE hacia transparente en la dirección del contenido
-    gradient_dir = "to right" if is_left else "to left"
-
-    return rx.box(
-        position="absolute",
-        left="0" if is_left else "auto",
-        right="auto" if is_left else "0",
-        top="0",
-        height="100%",
-        width="2rem",
-        background=f"linear-gradient({gradient_dir}, {Color.BG_BASE}, transparent)",
-        pointer_events="none",
-        z_index="5",
-    )
 
 
 def _dot_indicator(index: int) -> rx.Component:

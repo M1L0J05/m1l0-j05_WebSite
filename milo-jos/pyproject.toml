@@ -10,3 +10,8 @@ dependencies = [
     "reflex==0.8.6",
     "sqlmodel>=0.0.22,<0.0.30",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

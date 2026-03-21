@@ -119,7 +119,7 @@ LABEL_STYLE: dict = {
 """Estilo para labels y metadatos pequeños."""
 
 SECTION_PADDING: dict = {
-    "padding_x": ["1.5rem", "2rem", "4rem", "6rem"],
+    "padding_x": ["1.5rem", "2rem", "2.5rem", "4rem"],
     "padding_y": "5rem",
 }
 """Padding responsive para secciones principales."""

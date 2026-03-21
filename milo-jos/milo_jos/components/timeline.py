@@ -47,8 +47,10 @@ def timeline_item(
     }
 
     if is_active:
+        # Dot verde pulsante — coherente con el badge PRODUCCIÓN
         dot_style.update({
-            "background_color": Color.ACCENT_CYAN,
+            "background_color": Color.ACCENT_GREEN,
+            "box_shadow": f"0 0 8px {Color.ACCENT_GREEN}",
             "animation": Animation.GLOW_PULSE,
         })
     else:
@@ -61,30 +63,42 @@ def timeline_item(
         # Dot
         rx.box(**dot_style),
         # Contenido
-        rx.vstack(
-            rx.text(
-                year,
-                font_family=FontFamily.MONO,
-                font_size=FontSize.SMALL,
-                font_weight=FontWeight.REGULAR,
-                color=Color.TEXT_SECONDARY,
+        rx.box(
+            rx.vstack(
+                rx.text(
+                    year,
+                    font_family=FontFamily.MONO,
+                    font_size=FontSize.SMALL,
+                    font_weight=FontWeight.REGULAR,
+                    color=Color.ACCENT_GREEN if is_active else Color.TEXT_SECONDARY,
+                ),
+                rx.text(
+                    title,
+                    font_family=FontFamily.HEADING,
+                    font_size=FontSize.H3,
+                    font_weight=FontWeight.SEMI_BOLD,
+                    color=Color.ACCENT_GREEN if is_active else Color.TEXT_PRIMARY,
+                ),
+                rx.text(
+                    description,
+                    font_family=FontFamily.BODY,
+                    font_size=FontSize.SMALL,
+                    color=Color.ACCENT_GREEN if is_active else Color.TEXT_SECONDARY,
+                    line_height="1.5",
+                ),
+                spacing="1",
+                align_items="flex-start",
             ),
-            rx.text(
-                title,
-                font_family=FontFamily.HEADING,
-                font_size=FontSize.H3,
-                font_weight=FontWeight.SEMI_BOLD,
-                color=Color.TEXT_PRIMARY,
+            # Estilo tipo badge PRODUCCIÓN cuando es el hito activo
+            **(
+                {
+                    "border": f"1px solid rgba(63, 185, 80, 0.4)",
+                    "background": "rgba(63, 185, 80, 0.07)",
+                    "border_radius": "8px",
+                    "padding": "0.75rem 1rem",
+                }
+                if is_active else {}
             ),
-            rx.text(
-                description,
-                font_family=FontFamily.BODY,
-                font_size=FontSize.SMALL,
-                color=Color.TEXT_SECONDARY,
-                line_height="1.5",
-            ),
-            spacing="1",
-            align_items="flex-start",
         ),
         spacing="4",
         align_items="flex-start",

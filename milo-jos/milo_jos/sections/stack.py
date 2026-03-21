@@ -31,29 +31,22 @@ _STACK_LAYERS: list[dict] = [
     {
         "name": "Frontend",
         "icon": "monitor",
-        "techs": ["Python", "Reflex", "HTML", "CSS", "JavaScript"],
+        "techs": ["Django", "Reflex", "Python", "HTML", "CSS", "JavaScript"],
     },
     {
         "name": "Backend",
         "icon": "server",
-        "techs": ["Python", "FastAPI", "PostgreSQL", "Redis", "REST API"],
+        "techs": ["Django", "Python", "Redis", "REST API", "DataBases"],
     },
     {
         "name": "Infra / DevOps",
         "icon": "cloud",
-        "techs": [
-            "Docker",
-            "Kubernetes",
-            "Proxmox",
-            "Terraform",
-            "Ansible",
-            "Caddy",
-        ],
+        "techs": ["Docker", "Proxmox", "Caddy", "Nginx", "SysAdmin"],
     },
     {
         "name": "Automatización",
         "icon": "bot",
-        "techs": ["CI/CD", "GitHub Actions", "Bash", "Python Scripts"],
+        "techs": ["CI/CD", "GitHub Actions", "Bash", "Python Scripts", "IA Agents"],
     },
 ]
 

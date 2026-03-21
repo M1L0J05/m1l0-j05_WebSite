@@ -14,7 +14,7 @@
     "id": "hermes",
     "name": "Hermes",
     "description": "Herramienta que interactúa con la API de Inoreader para extraer feeds, procesar y clasificar contenido, y enviarlo via Telegram. Genera un pseudo-periódico personalizado en PDF adaptado a los intereses del usuario.",
-    "status": "EN DESARROLLO",
+    "status": "PRODUCCIÓN",
     "tech_stack": ["Python", "Docker"],
     "image": "/images/projects/hermes.webp",
     "href": "/proyectos/hermes",

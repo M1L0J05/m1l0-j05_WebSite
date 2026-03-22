@@ -29,6 +29,10 @@ Thumbs.db
 *.log
 logs/
 
+# Artefactos de build (generados por deploy.sh build)
+*.tar
+*.tar.gz
+
 # Tests
 .pytest_cache/
 .coverage

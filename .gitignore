@@ -15,3 +15,7 @@ docs/manual-despliegue.md
 docs/deployment.md
 docs/fase-5-deploy-stack.md
 docs/plan-rebrand-v2.md
+
+# --- Configuración de Claude Code (no debe estar en el repo) ---
+.claude/
+CLAUDE.md

@@ -1,10 +1,39 @@
-.web
-assets/external/
-.states
+# Reflex internals
+.web/
+.states/
+
+# Python
 *.db
 *.py[cod]
-.venv/
-.web/
 __pycache__/
+.venv/
 venv/
+
+# Entorno — NUNCA commitear
 .env
+
+# Assets externos (no versionados)
+assets/external/
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Artefactos de build (generados por deploy.sh build)
+*.tar
+*.tar.gz
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/

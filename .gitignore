@@ -1,0 +1,17 @@
+# =============================================================================
+# Archivos excluidos del repositorio público por seguridad
+# Exponen superficie de ataque: usuario, rutas, versiones, arquitectura VPS
+# =============================================================================
+
+# --- Infraestructura de deploy (revelan arquitectura del servidor) ---
+milo-jos/Dockerfile
+milo-jos/compose.yaml
+milo-jos/Caddyfile
+milo-jos/deploy.sh
+milo-jos/.env.example
+
+# --- Documentación de infraestructura (revelan rutas, usuario, comandos VPS) ---
+docs/manual-despliegue.md
+docs/deployment.md
+docs/fase-5-deploy-stack.md
+docs/plan-rebrand-v2.md

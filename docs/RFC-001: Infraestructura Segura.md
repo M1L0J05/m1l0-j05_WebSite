@@ -157,11 +157,23 @@ sudo iptables -A INPUT -j DROP
 # ── Reglas DOCKER-USER (tráfico a contenedores) ──
 # Docker crea esta cadena automáticamente. Las reglas aquí filtran
 # ANTES de que Docker haga NAT al contenedor.
-sudo iptables -I DOCKER-USER -m set --match-set cloudflare src -j RETURN
-sudo iptables -I DOCKER-USER -i tailscale0 -j RETURN
-sudo iptables -I DOCKER-USER -m conntrack --ctstate ESTABLISHED,RELATED -j RETURN
-# DROP todo lo demás dirigido a contenedores (insertar ANTES del RETURN final)
-sudo iptables -A DOCKER-USER -j DROP
+#
+# IMPORTANTE: Filtrar SOLO por interfaz pública (-i enp0s6).
+# Un DROP genérico sin -i bloquea también el tráfico saliente de
+# contenedores (DNS, apt-get, curl), rompiendo docker compose build.
+# Verificar interfaz con: ip route get 1.1.1.1 | head -1
+#
+# Nota DNS: Oracle Cloud usa 169.254.169.254 como resolver, que no
+# funciona desde contenedores. Configurar DNS público en Docker:
+#   echo '{"dns": ["1.1.1.1", "8.8.8.8"]}' | sudo tee /etc/docker/daemon.json
+#   sudo systemctl restart docker
+
+sudo iptables -A DOCKER-USER -i enp0s6 -m conntrack --ctstate ESTABLISHED,RELATED -j RETURN
+sudo iptables -A DOCKER-USER -i enp0s6 -m set --match-set cloudflare src -j RETURN
+# DROP tráfico entrante por interfaz pública que no sea de Cloudflare
+sudo iptables -A DOCKER-USER -i enp0s6 -j DROP
+# Todo lo demás (saliente de contenedores, Tailscale, inter-contenedor) pasa libre
+sudo iptables -A DOCKER-USER -j RETURN
 
 # Persistir reglas e ipset
 sudo ipset save | sudo tee /etc/ipset.conf

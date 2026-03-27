@@ -35,7 +35,7 @@ _TIMELINE_ITEMS: list[dict] = [
         "is_active": False,
     },
     {
-        "year": "20XX",
+        "year": "2016",
         "title": "Inicio en equipo de Obtención",
         "description": (
             "Periodo de maduración y crecimiento. "
@@ -44,7 +44,7 @@ _TIMELINE_ITEMS: list[dict] = [
         "is_active": False,
     },
     {
-        "year": "20XX",
+        "year": "2020",
         "title": "Inicio en equipo IT / ID+i",
         "description": (
             "Presento Ares y accedo al erquipo. "

@@ -9,6 +9,7 @@ from reflex.plugins.sitemap import SitemapPlugin
 
 config = rx.Config(
     app_name="milo_jos",
+    show_built_with_reflex=False,
     # Plugins declarados explícitamente para evitar warnings de Reflex
     plugins=[SitemapPlugin()],
     # --- Frontend ---

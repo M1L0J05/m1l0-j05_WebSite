@@ -37,3 +37,6 @@ logs/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Infraestructura — scripts de configuracion del VPS (solo local)
+infra/

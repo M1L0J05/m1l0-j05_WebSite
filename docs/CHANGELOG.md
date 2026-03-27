@@ -1,8 +1,35 @@
 # Changelog
 
 Formato basado en [Semantic Versioning](https://semver.org/lang/es/).
+Para cambios detallados por versión, ver también `milo-jos/CHANGELOG.md`.
 
-## [2.0.0] - En desarrollo
+---
+
+## [2.2.0] — 2026-03-27
+
+### Infraestructura y despliegue
+
+- **Dockerfile** multi-stage ARM64 con `uv` + usuario no-root `reflex` (UID 1001)
+- **compose.yaml** con Caddy (reverse proxy) + Reflex app + healthcheck vía `/ping`
+- **Caddyfile** con TLS Cloudflare Origin Certificate (Full Strict), headers de seguridad, logging JSON para Fail2ban
+- **deploy.sh** con flags `--build` y `--restart` para actualizaciones en el VPS
+- **Seguridad (RFC-001):** 4 capas implementadas — Cloudflare WAF, Oracle Security List, iptables/ipset con whitelist Cloudflare + DOCKER-USER, Fail2ban con jails progresivas
+- Scripts de infraestructura: `deploy-to-vps.sh` (setup inicial), `setup-fail2ban.sh`
+
+---
+
+## [2.1.0] — 2026-03-21
+
+### Carrusel de proyectos
+
+- Carrusel horizontal con scroll-snap CSS (reemplaza grid multi-fila)
+- `CarouselState` para gestión de índice activo y scroll programático
+- Flechas de navegación (tablet/desktop) + dots indicadores
+- Gradientes de borde y scrollbar oculta
+
+---
+
+## [2.0.0] — 2026-03-01
 
 ### BREAKING CHANGE: Rebrand completo
 
@@ -20,8 +47,6 @@ Formato basado en [Semantic Versioning](https://semver.org/lang/es/).
 **Infraestructura:**
 - Migración de Vercel a Oracle Cloud VPS ARM
 - Docker multi-stage + Caddy como reverse proxy
-- HTTPS automático con Let's Encrypt
-- Deploy manual con `deploy.sh`
 
 **Contenido:**
 - Hero section con terminal animada
@@ -32,7 +57,7 @@ Formato basado en [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
-## [1.2.0] - 2024
+## [1.2.0] — 2024
 
 - Versión original del portfolio
 - 3 páginas: index, about_me, projects

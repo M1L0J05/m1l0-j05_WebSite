@@ -11,7 +11,7 @@ Para cambios detallados por versión, ver también `milo-jos/CHANGELOG.md`.
 
 - **Dockerfile** multi-stage ARM64 con `uv` + usuario no-root `reflex` (UID 1001)
 - **compose.yaml** con Caddy (reverse proxy) + Reflex app + healthcheck vía `/ping`
-- **Caddyfile** con TLS Cloudflare Origin Certificate (Full Strict), headers de seguridad, logging JSON para Fail2ban
+- **Caddyfile** con TLS Cloudflare Origin Certificate (Full Strict), split routing (frontend `:3000` + backend `:8000`), rewrite `/_event` para WebSocket, headers de seguridad, logging JSON para Fail2ban
 - **deploy.sh** con flags `--build` y `--restart` para actualizaciones en el VPS
 - **Seguridad (RFC-001):** 4 capas implementadas — Cloudflare WAF, Oracle Security List, iptables/ipset con whitelist Cloudflare + DOCKER-USER, Fail2ban con jails progresivas
 - Scripts de infraestructura: `deploy-to-vps.sh` (setup inicial), `setup-fail2ban.sh`

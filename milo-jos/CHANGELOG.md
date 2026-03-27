@@ -12,7 +12,7 @@ Versiones según [Semantic Versioning](https://semver.org/lang/es/).
 
 - **Dockerfile** multi-stage ARM64: stage `build` con `python:3.12-slim` + `uv` + `reflex init/export`; stage `runtime` con usuario no-root `reflex` (UID 1001).
 - **compose.yaml**: orquestación con servicios `caddy` (reverse proxy) y `app` (Reflex full-stack), healthcheck vía `/ping`. Volúmenes para logs de Caddy (Fail2ban) y certificado Cloudflare Origin.
-- **Caddyfile**: TLS con Cloudflare Origin Certificate (Full Strict), headers de seguridad (HSTS, X-Frame-Options, Referrer-Policy), compresión gzip/zstd, redirect www → non-www, logging JSON para Fail2ban.
+- **Caddyfile**: TLS con Cloudflare Origin Certificate (Full Strict), split routing (frontend `:3000` + backend `:8000`), rewrite `/_event` para WebSocket (backend redirige con 307, WebSocket no sigue redirects), headers de seguridad (HSTS, X-Frame-Options, Referrer-Policy), compresión gzip/zstd, redirect www → non-www, logging JSON para Fail2ban.
 - **deploy.sh**: script de actualización en el VPS (`git pull` + `docker compose up`). Flags: `--build` (rebuild imagen), `--restart` (reinicio rápido).
 - **infra/deploy-to-vps.sh**: script de setup inicial (clone repo + scp archivos de infra + build + up).
 - **infra/setup-fail2ban.sh**: script de configuración de Fail2ban (filtros Caddy + jails).

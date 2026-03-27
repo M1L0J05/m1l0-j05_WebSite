@@ -6,19 +6,23 @@ Versiones según [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
-## [2.2.0] — 2026-03-22
+## [2.2.0] — 2026-03-27
 
 ### Añadido
 
 - **Dockerfile** multi-stage ARM64: stage `build` con `python:3.12-slim` + `uv` + `reflex init/export`; stage `runtime` con usuario no-root `reflex` (UID 1001).
-- **compose.yaml**: orquestación con servicios `caddy` (reverse proxy HTTPS) y `app` (Reflex full-stack), healthcheck integrado vía `/ping`. El servicio `app` usa `image:` — la imagen se carga vía `docker load`, sin repo en el VPS.
-- **Caddyfile**: HTTPS automático (Let's Encrypt), headers de seguridad (HSTS, X-Frame-Options, Referrer-Policy), compresión gzip/zstd, redirect www → non-www.
-- **deploy.sh**: script ejecutado desde máquina local con subcomandos `build` (buildx ARM64 + save), `push` (scp vía Tailscale + docker load + compose up), `all` y `sync` (actualiza archivos de config en VPS).
+- **compose.yaml**: orquestación con servicios `caddy` (reverse proxy) y `app` (Reflex full-stack), healthcheck vía `/ping`. Volúmenes para logs de Caddy (Fail2ban) y certificado Cloudflare Origin.
+- **Caddyfile**: TLS con Cloudflare Origin Certificate (Full Strict), headers de seguridad (HSTS, X-Frame-Options, Referrer-Policy), compresión gzip/zstd, redirect www → non-www, logging JSON para Fail2ban.
+- **deploy.sh**: script de actualización en el VPS (`git pull` + `docker compose up`). Flags: `--build` (rebuild imagen), `--restart` (reinicio rápido).
+- **infra/deploy-to-vps.sh**: script de setup inicial (clone repo + scp archivos de infra + build + up).
+- **infra/setup-fail2ban.sh**: script de configuración de Fail2ban (filtros Caddy + jails).
+- **.env.example**: plantilla de variables de entorno para producción.
+- **Infraestructura de seguridad (RFC-001)**: 4 capas — Cloudflare WAF, Oracle Security List, iptables/ipset con whitelist Cloudflare + DOCKER-USER, Fail2ban con jails progresivas.
 
 ### Modificado
 
 - `milo_jos/version.py`: bump `2.1.0` → `2.2.0`.
-- `.env.example`: renombrada `DEPLOY_HOST` → `VPS_HOST` (IP Tailscale); comentarios actualizados.
+- `.gitignore`: añadido `infra/` a exclusiones.
 
 ---
 

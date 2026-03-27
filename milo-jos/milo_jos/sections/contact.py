@@ -115,10 +115,10 @@ def contact_section() -> rx.Component:
                 font_size=FontSize.BODY,
             ),
             # Botón CTA de email
-            primary_button(
-                EMAIL,
-                href=f"mailto:{EMAIL}",
-            ),
+            #primary_button(
+            #    EMAIL,
+            #    href=f"mailto:{EMAIL}",
+            #),
             # Enlaces a redes sociales
             _social_links_row(),
             # Nota de tiempo de respuesta

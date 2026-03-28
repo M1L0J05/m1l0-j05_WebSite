@@ -31,7 +31,7 @@ TAGLINE_BIO: str = (
 
 # UVP (Unique Value Proposition)
 UVP: str = (
-    "Desarrollo Full‑Stack, especializado en backend e infraestructura. "
+    "Desarrollador Full‑Stack, especializado en backend e infraestructura. "
     "Diseño y construyo sistemas completos: desde la aplicación hasta la automatización y orquestación de servicios."
     "Trabajo con Python, contenedores, virtualización y automatización para crear infraestructuras "
     "sólidas y pipelines eficientes que funcionan en cloud y on‑premise."
@@ -49,7 +49,7 @@ META_OG_IMAGE: str = f"{SITE_URL}/images/root/og-image.png"
 # Links sociales
 # =============================================================================
 
-GITHUB_URL: str = "https://github.com/m1l0-j05"
+GITHUB_URL: str = "https://github.com/M1L0J05"
 TELEGRAM_URL: str = "https://t.me/M1L0J05"
 
 SOCIAL_LINKS: list[dict[str, str]] = [
